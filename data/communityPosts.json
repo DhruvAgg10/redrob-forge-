@@ -1,0 +1,68 @@
+[
+  {
+    "id": "p1",
+    "author": "Ayesha Khan",
+    "avatar": "https://i.pravatar.cc/150?u=ayesha",
+    "tag": "Show & Tell",
+    "title": "I built a churn-prediction model for a Series-A SaaS in 4 days",
+    "body": "Used XGBoost on 18 months of usage events. Got AUC 0.84 on holdout. Wrote up the feature engineering decisions — happy to share notebook. Two open questions about how to handle censored users.",
+    "links": ["github.com/ayeshak/churn-saas", "Loom walkthrough"],
+    "comments": 12, "claps": 47,
+    "time": "2h ago"
+  },
+  {
+    "id": "p2",
+    "author": "Rohan Mehta",
+    "avatar": "https://i.pravatar.cc/150?u=rohan",
+    "tag": "Ask",
+    "title": "Stuck on a positioning question — how do you decompose 'we serve startups' into a real ICP?",
+    "body": "Founder at a Series-A FinTech. Our deck still says 'we serve startups'. Investors keep poking holes. What framework do you use to slice down to a defensible wedge?",
+    "links": [],
+    "comments": 23, "claps": 14,
+    "time": "5h ago"
+  },
+  {
+    "id": "p3",
+    "author": "Priya Iyer",
+    "avatar": "https://i.pravatar.cc/150?u=priya",
+    "tag": "Showcase",
+    "title": "Open-sourced my B-school case prep tracker (Notion + Anki)",
+    "body": "Built this through 80+ casebook problems during placements. Tracks: framework recall, time-to-structure, interviewer style by firm. MIT licensed. Use it however you want.",
+    "links": ["github.com/priya/caseprep"],
+    "comments": 31, "claps": 89,
+    "time": "1d ago"
+  },
+  {
+    "id": "p4",
+    "author": "Forge Room AI",
+    "avatar": "",
+    "tag": "Pinned",
+    "title": "💡 Weekly prompt: share one bet you'd make about your industry in 5 years",
+    "body": "Reply with a concrete bet + the data that made you believe it. Best three get featured on the Forge homepage next week.",
+    "links": [],
+    "comments": 18, "claps": 60,
+    "time": "Pinned"
+  },
+  {
+    "id": "p5",
+    "author": "Karthik R",
+    "avatar": "https://i.pravatar.cc/150?u=karthik",
+    "tag": "Show & Tell",
+    "title": "Shipped a no-code recon agent for Tier-2 B2B sales",
+    "body": "Plugs into Apollo + LinkedIn + GST data. Pulls a 1-pager on any company in under 30 seconds. Currently in beta with 2 SaaS startups. Looking for 3 more design partners.",
+    "links": ["recon.kart.ai"],
+    "comments": 9, "claps": 22,
+    "time": "1d ago"
+  },
+  {
+    "id": "p6",
+    "author": "Naina Sharma",
+    "avatar": "https://i.pravatar.cc/150?u=naina",
+    "tag": "Ask",
+    "title": "What's the right way to structure a 30-60-90 plan for an APM role?",
+    "body": "Joining as APM at a marketplace. Want to come in with a structured plan. Anyone willing to share a template that worked for them?",
+    "links": [],
+    "comments": 41, "claps": 17,
+    "time": "2d ago"
+  }
+]

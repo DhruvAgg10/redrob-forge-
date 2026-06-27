@@ -1,0 +1,2061 @@
+{
+  "totals": {
+    "responses": 2000,
+    "aChoice": 748,
+    "bChoice": 867,
+    "noneChoice": 385,
+    "errors": 0
+  },
+  "utilities": [
+    {
+      "attribute": "price",
+      "level": "0",
+      "chosenCount": 319,
+      "appearedCount": 400,
+      "hitRate": 0.7975,
+      "normalizedUtility": 1
+    },
+    {
+      "attribute": "price",
+      "level": "99",
+      "chosenCount": 296,
+      "appearedCount": 392,
+      "hitRate": 0.7551020408163265,
+      "normalizedUtility": 0.9426375841959811
+    },
+    {
+      "attribute": "price",
+      "level": "149",
+      "chosenCount": 254,
+      "appearedCount": 410,
+      "hitRate": 0.6195121951219512,
+      "normalizedUtility": 0.7591909924902521
+    },
+    {
+      "attribute": "price",
+      "level": "199",
+      "chosenCount": 194,
+      "appearedCount": 400,
+      "hitRate": 0.485,
+      "normalizedUtility": 0.5772024105901138
+    },
+    {
+      "attribute": "price",
+      "level": "249",
+      "chosenCount": 177,
+      "appearedCount": 408,
+      "hitRate": 0.4338235294117647,
+      "normalizedUtility": 0.507963087712636
+    },
+    {
+      "attribute": "price",
+      "level": "299",
+      "chosenCount": 158,
+      "appearedCount": 400,
+      "hitRate": 0.395,
+      "normalizedUtility": 0.45543670484006665
+    },
+    {
+      "attribute": "price",
+      "level": "399",
+      "chosenCount": 88,
+      "appearedCount": 392,
+      "hitRate": 0.22448979591836735,
+      "normalizedUtility": 0.22474453442246015
+    },
+    {
+      "attribute": "price",
+      "level": "499",
+      "chosenCount": 74,
+      "appearedCount": 406,
+      "hitRate": 0.18226600985221675,
+      "normalizedUtility": 0.16761776653597307
+    },
+    {
+      "attribute": "price",
+      "level": "599",
+      "chosenCount": 32,
+      "appearedCount": 398,
+      "hitRate": 0.08040201005025126,
+      "normalizedUtility": 0.02980063513142865
+    },
+    {
+      "attribute": "price",
+      "level": "699",
+      "chosenCount": 23,
+      "appearedCount": 394,
+      "hitRate": 0.0583756345177665,
+      "normalizedUtility": 0
+    },
+    {
+      "attribute": "credentials",
+      "level": "1",
+      "chosenCount": 201,
+      "appearedCount": 692,
+      "hitRate": 0.2904624277456647,
+      "normalizedUtility": 0
+    },
+    {
+      "attribute": "credentials",
+      "level": "3",
+      "chosenCount": 185,
+      "appearedCount": 630,
+      "hitRate": 0.29365079365079366,
+      "normalizedUtility": 0.009876280847949077
+    },
+    {
+      "attribute": "credentials",
+      "level": "5",
+      "chosenCount": 208,
+      "appearedCount": 646,
+      "hitRate": 0.3219814241486068,
+      "normalizedUtility": 0.09763322961777932
+    },
+    {
+      "attribute": "credentials",
+      "level": "10",
+      "chosenCount": 253,
+      "appearedCount": 728,
+      "hitRate": 0.3475274725274725,
+      "normalizedUtility": 0.1767646580209972
+    },
+    {
+      "attribute": "credentials",
+      "level": "25",
+      "chosenCount": 362,
+      "appearedCount": 642,
+      "hitRate": 0.5638629283489096,
+      "normalizedUtility": 0.8468852723534308
+    },
+    {
+      "attribute": "credentials",
+      "level": "Unlimited",
+      "chosenCount": 406,
+      "appearedCount": 662,
+      "hitRate": 0.6132930513595166,
+      "normalizedUtility": 1
+    },
+    {
+      "attribute": "atsScans",
+      "level": "25 + AI",
+      "chosenCount": 355,
+      "appearedCount": 786,
+      "hitRate": 0.45165394402035625,
+      "normalizedUtility": 0.6517778791868342
+    },
+    {
+      "attribute": "atsScans",
+      "level": "10 + AI",
+      "chosenCount": 342,
+      "appearedCount": 848,
+      "hitRate": 0.4033018867924528,
+      "normalizedUtility": 0.4462895876483725
+    },
+    {
+      "attribute": "atsScans",
+      "level": "3 basic",
+      "chosenCount": 244,
+      "appearedCount": 818,
+      "hitRate": 0.2982885085574572,
+      "normalizedUtility": 0
+    },
+    {
+      "attribute": "atsScans",
+      "level": "Unlimited + AI",
+      "chosenCount": 413,
+      "appearedCount": 774,
+      "hitRate": 0.5335917312661499,
+      "normalizedUtility": 1
+    },
+    {
+      "attribute": "atsScans",
+      "level": "10 basic",
+      "chosenCount": 261,
+      "appearedCount": 774,
+      "hitRate": 0.3372093023255814,
+      "normalizedUtility": 0.16540697284162761
+    },
+    {
+      "attribute": "careerPath",
+      "level": "1",
+      "chosenCount": 295,
+      "appearedCount": 946,
+      "hitRate": 0.3118393234672304,
+      "normalizedUtility": 0
+    },
+    {
+      "attribute": "careerPath",
+      "level": "3",
+      "chosenCount": 291,
+      "appearedCount": 770,
+      "hitRate": 0.37792207792207794,
+      "normalizedUtility": 0.38622229738025377
+    },
+    {
+      "attribute": "careerPath",
+      "level": "5",
+      "chosenCount": 294,
+      "appearedCount": 762,
+      "hitRate": 0.3858267716535433,
+      "normalizedUtility": 0.4324214759441534
+    },
+    {
+      "attribute": "careerPath",
+      "level": "10",
+      "chosenCount": 367,
+      "appearedCount": 760,
+      "hitRate": 0.48289473684210527,
+      "normalizedUtility": 0.9997376059454934
+    },
+    {
+      "attribute": "careerPath",
+      "level": "Unlimited",
+      "chosenCount": 368,
+      "appearedCount": 762,
+      "hitRate": 0.48293963254593175,
+      "normalizedUtility": 1
+    },
+    {
+      "attribute": "defenceInterview",
+      "level": "5/mo",
+      "chosenCount": 368,
+      "appearedCount": 826,
+      "hitRate": 0.44552058111380144,
+      "normalizedUtility": 0.7131818855064688
+    },
+    {
+      "attribute": "defenceInterview",
+      "level": "Unlimited",
+      "chosenCount": 401,
+      "appearedCount": 810,
+      "hitRate": 0.49506172839506174,
+      "normalizedUtility": 1
+    },
+    {
+      "attribute": "defenceInterview",
+      "level": "2/mo",
+      "chosenCount": 330,
+      "appearedCount": 778,
+      "hitRate": 0.4241645244215938,
+      "normalizedUtility": 0.5895411494794907
+    },
+    {
+      "attribute": "defenceInterview",
+      "level": "None",
+      "chosenCount": 254,
+      "appearedCount": 788,
+      "hitRate": 0.3223350253807107,
+      "normalizedUtility": 0
+    },
+    {
+      "attribute": "defenceInterview",
+      "level": "1/mo",
+      "chosenCount": 262,
+      "appearedCount": 798,
+      "hitRate": 0.3283208020050125,
+      "normalizedUtility": 0.03465461054857569
+    },
+    {
+      "attribute": "leaderboard",
+      "level": "Top of feed",
+      "chosenCount": 406,
+      "appearedCount": 930,
+      "hitRate": 0.43655913978494626,
+      "normalizedUtility": 1
+    },
+    {
+      "attribute": "leaderboard",
+      "level": "Verified hire-ready",
+      "chosenCount": 400,
+      "appearedCount": 948,
+      "hitRate": 0.4219409282700422,
+      "normalizedUtility": 0.7886334918285166
+    },
+    {
+      "attribute": "leaderboard",
+      "level": "Standard",
+      "chosenCount": 435,
+      "appearedCount": 1184,
+      "hitRate": 0.36739864864864863,
+      "normalizedUtility": 0
+    },
+    {
+      "attribute": "leaderboard",
+      "level": "Boosted",
+      "chosenCount": 374,
+      "appearedCount": 938,
+      "hitRate": 0.39872068230277186,
+      "normalizedUtility": 0.4528891154401364
+    },
+    {
+      "attribute": "annualDiscount",
+      "level": "0",
+      "chosenCount": 189,
+      "appearedCount": 492,
+      "hitRate": 0.38414634146341464,
+      "normalizedUtility": 0.16015957929096006
+    },
+    {
+      "attribute": "annualDiscount",
+      "level": "15",
+      "chosenCount": 172,
+      "appearedCount": 464,
+      "hitRate": 0.3706896551724138,
+      "normalizedUtility": 0
+    },
+    {
+      "attribute": "annualDiscount",
+      "level": "20",
+      "chosenCount": 201,
+      "appearedCount": 490,
+      "hitRate": 0.41020408163265304,
+      "normalizedUtility": 0.4702951217661781
+    },
+    {
+      "attribute": "annualDiscount",
+      "level": "25",
+      "chosenCount": 223,
+      "appearedCount": 532,
+      "hitRate": 0.4191729323308271,
+      "normalizedUtility": 0.577041115800654
+    },
+    {
+      "attribute": "annualDiscount",
+      "level": "30",
+      "chosenCount": 191,
+      "appearedCount": 492,
+      "hitRate": 0.3882113821138211,
+      "normalizedUtility": 0.2085411188684372
+    },
+    {
+      "attribute": "annualDiscount",
+      "level": "35",
+      "chosenCount": 187,
+      "appearedCount": 470,
+      "hitRate": 0.39787234042553193,
+      "normalizedUtility": 0.3235244799493791
+    },
+    {
+      "attribute": "annualDiscount",
+      "level": "40",
+      "chosenCount": 201,
+      "appearedCount": 508,
+      "hitRate": 0.3956692913385827,
+      "normalizedUtility": 0.29730410092790444
+    },
+    {
+      "attribute": "annualDiscount",
+      "level": "50",
+      "chosenCount": 251,
+      "appearedCount": 552,
+      "hitRate": 0.45471014492753625,
+      "normalizedUtility": 1
+    }
+  ],
+  "priceElasticity": [
+    {
+      "price": 0,
+      "shareChosen": 0.7975,
+      "appearedCount": 400,
+      "chosenCount": 319
+    },
+    {
+      "price": 99,
+      "shareChosen": 0.7551020408163265,
+      "appearedCount": 392,
+      "chosenCount": 296
+    },
+    {
+      "price": 149,
+      "shareChosen": 0.6195121951219512,
+      "appearedCount": 410,
+      "chosenCount": 254
+    },
+    {
+      "price": 199,
+      "shareChosen": 0.485,
+      "appearedCount": 400,
+      "chosenCount": 194
+    },
+    {
+      "price": 249,
+      "shareChosen": 0.4338235294117647,
+      "appearedCount": 408,
+      "chosenCount": 177
+    },
+    {
+      "price": 299,
+      "shareChosen": 0.395,
+      "appearedCount": 400,
+      "chosenCount": 158
+    },
+    {
+      "price": 399,
+      "shareChosen": 0.22448979591836735,
+      "appearedCount": 392,
+      "chosenCount": 88
+    },
+    {
+      "price": 499,
+      "shareChosen": 0.18226600985221675,
+      "appearedCount": 406,
+      "chosenCount": 74
+    },
+    {
+      "price": 599,
+      "shareChosen": 0.08040201005025126,
+      "appearedCount": 398,
+      "chosenCount": 32
+    },
+    {
+      "price": 699,
+      "shareChosen": 0.0583756345177665,
+      "appearedCount": 394,
+      "chosenCount": 23
+    }
+  ],
+  "wtp": [
+    {
+      "feature": "Unlimited credentials (vs 3)",
+      "lowEstimate": 316,
+      "midEstimate": 396,
+      "highEstimate": 496
+    },
+    {
+      "feature": "AI-powered ATS (vs basic)",
+      "lowEstimate": 32,
+      "midEstimate": 112,
+      "highEstimate": 212
+    },
+    {
+      "feature": "Unlimited ATS + AI (vs basic)",
+      "lowEstimate": 320,
+      "midEstimate": 400,
+      "highEstimate": 500
+    },
+    {
+      "feature": "Unlimited Career Path (vs 3)",
+      "lowEstimate": 166,
+      "midEstimate": 246,
+      "highEstimate": 346
+    },
+    {
+      "feature": "Defence Interview 2/mo (vs None)",
+      "lowEstimate": 156,
+      "midEstimate": 236,
+      "highEstimate": 336
+    },
+    {
+      "feature": "Defence Interview Unlimited (vs None)",
+      "lowEstimate": 320,
+      "midEstimate": 400,
+      "highEstimate": 500
+    },
+    {
+      "feature": "Boosted Leaderboard (vs Standard)",
+      "lowEstimate": 101,
+      "midEstimate": 181,
+      "highEstimate": 281
+    },
+    {
+      "feature": "Verified hire-ready badge (vs Standard)",
+      "lowEstimate": 235,
+      "midEstimate": 315,
+      "highEstimate": 415
+    }
+  ],
+  "segments": [
+    {
+      "segment": "City Tier",
+      "segmentValue": "T1",
+      "noneRate": 0.16071428571428573,
+      "topChosenFeatures": [
+        {
+          "attribute": "price",
+          "level": "0",
+          "hitRate": 0.8080357142857143
+        },
+        {
+          "attribute": "price",
+          "level": "99",
+          "hitRate": 0.7415254237288136
+        },
+        {
+          "attribute": "credentials",
+          "level": "Unlimited",
+          "hitRate": 0.6149732620320856
+        },
+        {
+          "attribute": "price",
+          "level": "149",
+          "hitRate": 0.5943396226415094
+        },
+        {
+          "attribute": "credentials",
+          "level": "25",
+          "hitRate": 0.5753768844221105
+        }
+      ],
+      "pricePoint": [
+        {
+          "price": 0,
+          "shareChosen": 0.8080357142857143
+        },
+        {
+          "price": 99,
+          "shareChosen": 0.7415254237288136
+        },
+        {
+          "price": 149,
+          "shareChosen": 0.5943396226415094
+        },
+        {
+          "price": 199,
+          "shareChosen": 0.48760330578512395
+        },
+        {
+          "price": 249,
+          "shareChosen": 0.4449152542372881
+        },
+        {
+          "price": 299,
+          "shareChosen": 0.4675925925925926
+        },
+        {
+          "price": 399,
+          "shareChosen": 0.24324324324324326
+        },
+        {
+          "price": 499,
+          "shareChosen": 0.21818181818181817
+        },
+        {
+          "price": 599,
+          "shareChosen": 0.07589285714285714
+        },
+        {
+          "price": 699,
+          "shareChosen": 0.07211538461538461
+        }
+      ]
+    },
+    {
+      "segment": "City Tier",
+      "segmentValue": "T3",
+      "noneRate": 0.26666666666666666,
+      "topChosenFeatures": [
+        {
+          "attribute": "price",
+          "level": "0",
+          "hitRate": 0.8
+        },
+        {
+          "attribute": "price",
+          "level": "99",
+          "hitRate": 0.7894736842105263
+        },
+        {
+          "attribute": "credentials",
+          "level": "Unlimited",
+          "hitRate": 0.6590909090909091
+        },
+        {
+          "attribute": "price",
+          "level": "149",
+          "hitRate": 0.6585365853658537
+        },
+        {
+          "attribute": "atsScans",
+          "level": "Unlimited + AI",
+          "hitRate": 0.547945205479452
+        }
+      ],
+      "pricePoint": [
+        {
+          "price": 0,
+          "shareChosen": 0.8
+        },
+        {
+          "price": 99,
+          "shareChosen": 0.7894736842105263
+        },
+        {
+          "price": 149,
+          "shareChosen": 0.6585365853658537
+        },
+        {
+          "price": 199,
+          "shareChosen": 0.47560975609756095
+        },
+        {
+          "price": 249,
+          "shareChosen": 0.4473684210526316
+        },
+        {
+          "price": 299,
+          "shareChosen": 0.29
+        },
+        {
+          "price": 399,
+          "shareChosen": 0.075
+        },
+        {
+          "price": 499,
+          "shareChosen": 0.10714285714285714
+        },
+        {
+          "price": 599,
+          "shareChosen": 0.10256410256410256
+        },
+        {
+          "price": 699,
+          "shareChosen": 0.049019607843137254
+        }
+      ]
+    },
+    {
+      "segment": "City Tier",
+      "segmentValue": "T2",
+      "noneRate": 0.20217391304347826,
+      "topChosenFeatures": [
+        {
+          "attribute": "price",
+          "level": "0",
+          "hitRate": 0.7708333333333334
+        },
+        {
+          "attribute": "price",
+          "level": "99",
+          "hitRate": 0.7625
+        },
+        {
+          "attribute": "price",
+          "level": "149",
+          "hitRate": 0.6379310344827587
+        },
+        {
+          "attribute": "credentials",
+          "level": "25",
+          "hitRate": 0.6044776119402985
+        },
+        {
+          "attribute": "credentials",
+          "level": "Unlimited",
+          "hitRate": 0.5705128205128205
+        }
+      ],
+      "pricePoint": [
+        {
+          "price": 0,
+          "shareChosen": 0.7708333333333334
+        },
+        {
+          "price": 99,
+          "shareChosen": 0.7625
+        },
+        {
+          "price": 149,
+          "shareChosen": 0.6379310344827587
+        },
+        {
+          "price": 199,
+          "shareChosen": 0.4868421052631579
+        },
+        {
+          "price": 249,
+          "shareChosen": 0.3958333333333333
+        },
+        {
+          "price": 299,
+          "shareChosen": 0.3333333333333333
+        },
+        {
+          "price": 399,
+          "shareChosen": 0.3111111111111111
+        },
+        {
+          "price": 499,
+          "shareChosen": 0.16666666666666666
+        },
+        {
+          "price": 599,
+          "shareChosen": 0.07291666666666667
+        },
+        {
+          "price": 699,
+          "shareChosen": 0.03571428571428571
+        }
+      ]
+    },
+    {
+      "segment": "Income Band",
+      "segmentValue": "₹0",
+      "noneRate": 0.475,
+      "topChosenFeatures": [
+        {
+          "attribute": "price",
+          "level": "0",
+          "hitRate": 0.8392857142857143
+        },
+        {
+          "attribute": "price",
+          "level": "99",
+          "hitRate": 0.7096774193548387
+        },
+        {
+          "attribute": "price",
+          "level": "149",
+          "hitRate": 0.4864864864864865
+        },
+        {
+          "attribute": "annualDiscount",
+          "level": "30",
+          "hitRate": 0.3854166666666667
+        },
+        {
+          "attribute": "credentials",
+          "level": "Unlimited",
+          "hitRate": 0.3673469387755102
+        }
+      ],
+      "pricePoint": [
+        {
+          "price": 0,
+          "shareChosen": 0.8392857142857143
+        },
+        {
+          "price": 99,
+          "shareChosen": 0.7096774193548387
+        },
+        {
+          "price": 149,
+          "shareChosen": 0.4864864864864865
+        },
+        {
+          "price": 199,
+          "shareChosen": 0.2647058823529412
+        },
+        {
+          "price": 249,
+          "shareChosen": 0.19444444444444445
+        },
+        {
+          "price": 299,
+          "shareChosen": 0.10606060606060606
+        },
+        {
+          "price": 399,
+          "shareChosen": 0.041666666666666664
+        },
+        {
+          "price": 499,
+          "shareChosen": 0
+        },
+        {
+          "price": 599,
+          "shareChosen": 0
+        },
+        {
+          "price": 699,
+          "shareChosen": 0
+        }
+      ]
+    },
+    {
+      "segment": "Income Band",
+      "segmentValue": "₹15-30L",
+      "noneRate": 0.0703125,
+      "topChosenFeatures": [
+        {
+          "attribute": "price",
+          "level": "0",
+          "hitRate": 0.7847222222222222
+        },
+        {
+          "attribute": "price",
+          "level": "149",
+          "hitRate": 0.6756756756756757
+        },
+        {
+          "attribute": "credentials",
+          "level": "25",
+          "hitRate": 0.6682692307692307
+        },
+        {
+          "attribute": "credentials",
+          "level": "Unlimited",
+          "hitRate": 0.6554621848739496
+        },
+        {
+          "attribute": "price",
+          "level": "99",
+          "hitRate": 0.6532258064516129
+        }
+      ],
+      "pricePoint": [
+        {
+          "price": 0,
+          "shareChosen": 0.7847222222222222
+        },
+        {
+          "price": 99,
+          "shareChosen": 0.6532258064516129
+        },
+        {
+          "price": 149,
+          "shareChosen": 0.6756756756756757
+        },
+        {
+          "price": 199,
+          "shareChosen": 0.5508474576271186
+        },
+        {
+          "price": 249,
+          "shareChosen": 0.5245901639344263
+        },
+        {
+          "price": 299,
+          "shareChosen": 0.5895522388059702
+        },
+        {
+          "price": 399,
+          "shareChosen": 0.2966101694915254
+        },
+        {
+          "price": 499,
+          "shareChosen": 0.24615384615384617
+        },
+        {
+          "price": 599,
+          "shareChosen": 0.1388888888888889
+        },
+        {
+          "price": 699,
+          "shareChosen": 0.08208955223880597
+        }
+      ]
+    },
+    {
+      "segment": "Income Band",
+      "segmentValue": "₹8-15L",
+      "noneRate": 0.20434782608695654,
+      "topChosenFeatures": [
+        {
+          "attribute": "price",
+          "level": "99",
+          "hitRate": 0.8557692307692307
+        },
+        {
+          "attribute": "price",
+          "level": "0",
+          "hitRate": 0.8541666666666666
+        },
+        {
+          "attribute": "price",
+          "level": "149",
+          "hitRate": 0.6805555555555556
+        },
+        {
+          "attribute": "credentials",
+          "level": "Unlimited",
+          "hitRate": 0.5895522388059702
+        },
+        {
+          "attribute": "price",
+          "level": "199",
+          "hitRate": 0.57
+        }
+      ],
+      "pricePoint": [
+        {
+          "price": 0,
+          "shareChosen": 0.8541666666666666
+        },
+        {
+          "price": 99,
+          "shareChosen": 0.8557692307692307
+        },
+        {
+          "price": 149,
+          "shareChosen": 0.6805555555555556
+        },
+        {
+          "price": 199,
+          "shareChosen": 0.57
+        },
+        {
+          "price": 249,
+          "shareChosen": 0.41
+        },
+        {
+          "price": 299,
+          "shareChosen": 0.2857142857142857
+        },
+        {
+          "price": 399,
+          "shareChosen": 0.1276595744680851
+        },
+        {
+          "price": 499,
+          "shareChosen": 0.10416666666666667
+        },
+        {
+          "price": 599,
+          "shareChosen": 0.04081632653061224
+        },
+        {
+          "price": 699,
+          "shareChosen": 0.022222222222222223
+        }
+      ]
+    },
+    {
+      "segment": "Income Band",
+      "segmentValue": "₹4-8L",
+      "noneRate": 0.29642857142857143,
+      "topChosenFeatures": [
+        {
+          "attribute": "price",
+          "level": "0",
+          "hitRate": 0.8269230769230769
+        },
+        {
+          "attribute": "price",
+          "level": "99",
+          "hitRate": 0.7758620689655172
+        },
+        {
+          "attribute": "price",
+          "level": "149",
+          "hitRate": 0.6111111111111112
+        },
+        {
+          "attribute": "credentials",
+          "level": "Unlimited",
+          "hitRate": 0.6022727272727273
+        },
+        {
+          "attribute": "credentials",
+          "level": "25",
+          "hitRate": 0.5121951219512195
+        }
+      ],
+      "pricePoint": [
+        {
+          "price": 0,
+          "shareChosen": 0.8269230769230769
+        },
+        {
+          "price": 99,
+          "shareChosen": 0.7758620689655172
+        },
+        {
+          "price": 149,
+          "shareChosen": 0.6111111111111112
+        },
+        {
+          "price": 199,
+          "shareChosen": 0.34
+        },
+        {
+          "price": 249,
+          "shareChosen": 0.4166666666666667
+        },
+        {
+          "price": 299,
+          "shareChosen": 0.140625
+        },
+        {
+          "price": 399,
+          "shareChosen": 0.21875
+        },
+        {
+          "price": 499,
+          "shareChosen": 0.1875
+        },
+        {
+          "price": 599,
+          "shareChosen": 0.037037037037037035
+        },
+        {
+          "price": 699,
+          "shareChosen": 0
+        }
+      ]
+    },
+    {
+      "segment": "Income Band",
+      "segmentValue": "₹30L+",
+      "noneRate": 0.03666666666666667,
+      "topChosenFeatures": [
+        {
+          "attribute": "price",
+          "level": "99",
+          "hitRate": 0.8409090909090909
+        },
+        {
+          "attribute": "credentials",
+          "level": "Unlimited",
+          "hitRate": 0.7884615384615384
+        },
+        {
+          "attribute": "defenceInterview",
+          "level": "Unlimited",
+          "hitRate": 0.6610169491525424
+        },
+        {
+          "attribute": "price",
+          "level": "0",
+          "hitRate": 0.6538461538461539
+        },
+        {
+          "attribute": "price",
+          "level": "299",
+          "hitRate": 0.6515151515151515
+        }
+      ],
+      "pricePoint": [
+        {
+          "price": 0,
+          "shareChosen": 0.6538461538461539
+        },
+        {
+          "price": 99,
+          "shareChosen": 0.8409090909090909
+        },
+        {
+          "price": 149,
+          "shareChosen": 0.5806451612903226
+        },
+        {
+          "price": 199,
+          "shareChosen": 0.578125
+        },
+        {
+          "price": 249,
+          "shareChosen": 0.6111111111111112
+        },
+        {
+          "price": 299,
+          "shareChosen": 0.6515151515151515
+        },
+        {
+          "price": 399,
+          "shareChosen": 0.36764705882352944
+        },
+        {
+          "price": 499,
+          "shareChosen": 0.38333333333333336
+        },
+        {
+          "price": 599,
+          "shareChosen": 0.13414634146341464
+        },
+        {
+          "price": 699,
+          "shareChosen": 0.20833333333333334
+        }
+      ]
+    },
+    {
+      "segment": "Risk Profile",
+      "segmentValue": "price-sensitive",
+      "noneRate": 0.27631578947368424,
+      "topChosenFeatures": [
+        {
+          "attribute": "price",
+          "level": "0",
+          "hitRate": 0.8726415094339622
+        },
+        {
+          "attribute": "price",
+          "level": "99",
+          "hitRate": 0.7436974789915967
+        },
+        {
+          "attribute": "price",
+          "level": "149",
+          "hitRate": 0.602803738317757
+        },
+        {
+          "attribute": "credentials",
+          "level": "Unlimited",
+          "hitRate": 0.5515463917525774
+        },
+        {
+          "attribute": "atsScans",
+          "level": "Unlimited + AI",
+          "hitRate": 0.4838709677419355
+        }
+      ],
+      "pricePoint": [
+        {
+          "price": 0,
+          "shareChosen": 0.8726415094339622
+        },
+        {
+          "price": 99,
+          "shareChosen": 0.7436974789915967
+        },
+        {
+          "price": 149,
+          "shareChosen": 0.602803738317757
+        },
+        {
+          "price": 199,
+          "shareChosen": 0.4375
+        },
+        {
+          "price": 249,
+          "shareChosen": 0.38288288288288286
+        },
+        {
+          "price": 299,
+          "shareChosen": 0.34210526315789475
+        },
+        {
+          "price": 399,
+          "shareChosen": 0.10975609756097561
+        },
+        {
+          "price": 499,
+          "shareChosen": 0.09405940594059406
+        },
+        {
+          "price": 599,
+          "shareChosen": 0.046610169491525424
+        },
+        {
+          "price": 699,
+          "shareChosen": 0.0371900826446281
+        }
+      ]
+    },
+    {
+      "segment": "Risk Profile",
+      "segmentValue": "feature-maximizer",
+      "noneRate": 0.09411764705882353,
+      "topChosenFeatures": [
+        {
+          "attribute": "price",
+          "level": "99",
+          "hitRate": 0.7983870967741935
+        },
+        {
+          "attribute": "credentials",
+          "level": "Unlimited",
+          "hitRate": 0.6981132075471698
+        },
+        {
+          "attribute": "price",
+          "level": "0",
+          "hitRate": 0.6944444444444444
+        },
+        {
+          "attribute": "credentials",
+          "level": "25",
+          "hitRate": 0.6875
+        },
+        {
+          "attribute": "price",
+          "level": "149",
+          "hitRate": 0.6410256410256411
+        }
+      ],
+      "pricePoint": [
+        {
+          "price": 0,
+          "shareChosen": 0.6944444444444444
+        },
+        {
+          "price": 99,
+          "shareChosen": 0.7983870967741935
+        },
+        {
+          "price": 149,
+          "shareChosen": 0.6410256410256411
+        },
+        {
+          "price": 199,
+          "shareChosen": 0.5396825396825397
+        },
+        {
+          "price": 249,
+          "shareChosen": 0.48507462686567165
+        },
+        {
+          "price": 299,
+          "shareChosen": 0.4714285714285714
+        },
+        {
+          "price": 399,
+          "shareChosen": 0.39473684210526316
+        },
+        {
+          "price": 499,
+          "shareChosen": 0.24390243902439024
+        },
+        {
+          "price": 599,
+          "shareChosen": 0.14788732394366197
+        },
+        {
+          "price": 699,
+          "shareChosen": 0.10344827586206896
+        }
+      ]
+    },
+    {
+      "segment": "Risk Profile",
+      "segmentValue": "status-premium",
+      "noneRate": 0.03333333333333333,
+      "topChosenFeatures": [
+        {
+          "attribute": "credentials",
+          "level": "25",
+          "hitRate": 0.7777777777777778
+        },
+        {
+          "attribute": "price",
+          "level": "0",
+          "hitRate": 0.7727272727272727
+        },
+        {
+          "attribute": "credentials",
+          "level": "Unlimited",
+          "hitRate": 0.7096774193548387
+        },
+        {
+          "attribute": "price",
+          "level": "99",
+          "hitRate": 0.6666666666666666
+        },
+        {
+          "attribute": "annualDiscount",
+          "level": "30",
+          "hitRate": 0.6481481481481481
+        }
+      ],
+      "pricePoint": [
+        {
+          "price": 0,
+          "shareChosen": 0.7727272727272727
+        },
+        {
+          "price": 99,
+          "shareChosen": 0.6666666666666666
+        },
+        {
+          "price": 149,
+          "shareChosen": 0.625
+        },
+        {
+          "price": 199,
+          "shareChosen": 0.6176470588235294
+        },
+        {
+          "price": 249,
+          "shareChosen": 0.5192307692307693
+        },
+        {
+          "price": 299,
+          "shareChosen": 0.4375
+        },
+        {
+          "price": 399,
+          "shareChosen": 0.5
+        },
+        {
+          "price": 499,
+          "shareChosen": 0.375
+        },
+        {
+          "price": 599,
+          "shareChosen": 0
+        },
+        {
+          "price": 699,
+          "shareChosen": 0.05555555555555555
+        }
+      ]
+    },
+    {
+      "segment": "Career Goal",
+      "segmentValue": "Salary jump",
+      "noneRate": 0.16818181818181818,
+      "topChosenFeatures": [
+        {
+          "attribute": "price",
+          "level": "99",
+          "hitRate": 0.7897727272727273
+        },
+        {
+          "attribute": "price",
+          "level": "0",
+          "hitRate": 0.7470588235294118
+        },
+        {
+          "attribute": "credentials",
+          "level": "Unlimited",
+          "hitRate": 0.6751824817518248
+        },
+        {
+          "attribute": "credentials",
+          "level": "25",
+          "hitRate": 0.5851851851851851
+        },
+        {
+          "attribute": "price",
+          "level": "149",
+          "hitRate": 0.5747126436781609
+        }
+      ],
+      "pricePoint": [
+        {
+          "price": 0,
+          "shareChosen": 0.7470588235294118
+        },
+        {
+          "price": 99,
+          "shareChosen": 0.7897727272727273
+        },
+        {
+          "price": 149,
+          "shareChosen": 0.5747126436781609
+        },
+        {
+          "price": 199,
+          "shareChosen": 0.5543478260869565
+        },
+        {
+          "price": 249,
+          "shareChosen": 0.4107142857142857
+        },
+        {
+          "price": 299,
+          "shareChosen": 0.413265306122449
+        },
+        {
+          "price": 399,
+          "shareChosen": 0.31176470588235294
+        },
+        {
+          "price": 499,
+          "shareChosen": 0.17777777777777778
+        },
+        {
+          "price": 599,
+          "shareChosen": 0.10919540229885058
+        },
+        {
+          "price": 699,
+          "shareChosen": 0.05952380952380952
+        }
+      ]
+    },
+    {
+      "segment": "Career Goal",
+      "segmentValue": "Start own thing",
+      "noneRate": 0.09583333333333334,
+      "topChosenFeatures": [
+        {
+          "attribute": "price",
+          "level": "0",
+          "hitRate": 0.8095238095238095
+        },
+        {
+          "attribute": "price",
+          "level": "149",
+          "hitRate": 0.6829268292682927
+        },
+        {
+          "attribute": "price",
+          "level": "99",
+          "hitRate": 0.675
+        },
+        {
+          "attribute": "credentials",
+          "level": "25",
+          "hitRate": 0.6714285714285714
+        },
+        {
+          "attribute": "careerPath",
+          "level": "Unlimited",
+          "hitRate": 0.6071428571428571
+        }
+      ],
+      "pricePoint": [
+        {
+          "price": 0,
+          "shareChosen": 0.8095238095238095
+        },
+        {
+          "price": 99,
+          "shareChosen": 0.675
+        },
+        {
+          "price": 149,
+          "shareChosen": 0.6829268292682927
+        },
+        {
+          "price": 199,
+          "shareChosen": 0.391304347826087
+        },
+        {
+          "price": 249,
+          "shareChosen": 0.5
+        },
+        {
+          "price": 299,
+          "shareChosen": 0.5434782608695652
+        },
+        {
+          "price": 399,
+          "shareChosen": 0.225
+        },
+        {
+          "price": 499,
+          "shareChosen": 0.17391304347826086
+        },
+        {
+          "price": 599,
+          "shareChosen": 0.1388888888888889
+        },
+        {
+          "price": 699,
+          "shareChosen": 0.11904761904761904
+        }
+      ]
+    },
+    {
+      "segment": "Career Goal",
+      "segmentValue": "Move abroad/remote",
+      "noneRate": 0.12857142857142856,
+      "topChosenFeatures": [
+        {
+          "attribute": "price",
+          "level": "0",
+          "hitRate": 0.9074074074074074
+        },
+        {
+          "attribute": "price",
+          "level": "99",
+          "hitRate": 0.7678571428571429
+        },
+        {
+          "attribute": "price",
+          "level": "149",
+          "hitRate": 0.6904761904761905
+        },
+        {
+          "attribute": "price",
+          "level": "199",
+          "hitRate": 0.65
+        },
+        {
+          "attribute": "credentials",
+          "level": "Unlimited",
+          "hitRate": 0.6458333333333334
+        }
+      ],
+      "pricePoint": [
+        {
+          "price": 0,
+          "shareChosen": 0.9074074074074074
+        },
+        {
+          "price": 99,
+          "shareChosen": 0.7678571428571429
+        },
+        {
+          "price": 149,
+          "shareChosen": 0.6904761904761905
+        },
+        {
+          "price": 199,
+          "shareChosen": 0.65
+        },
+        {
+          "price": 249,
+          "shareChosen": 0.4838709677419355
+        },
+        {
+          "price": 299,
+          "shareChosen": 0.47619047619047616
+        },
+        {
+          "price": 399,
+          "shareChosen": 0.15789473684210525
+        },
+        {
+          "price": 499,
+          "shareChosen": 0.3333333333333333
+        },
+        {
+          "price": 599,
+          "shareChosen": 0.038461538461538464
+        },
+        {
+          "price": 699,
+          "shareChosen": 0.058823529411764705
+        }
+      ]
+    },
+    {
+      "segment": "Career Goal",
+      "segmentValue": "PM switch",
+      "noneRate": 0.24761904761904763,
+      "topChosenFeatures": [
+        {
+          "attribute": "price",
+          "level": "0",
+          "hitRate": 0.803921568627451
+        },
+        {
+          "attribute": "price",
+          "level": "99",
+          "hitRate": 0.7647058823529411
+        },
+        {
+          "attribute": "atsScans",
+          "level": "Unlimited + AI",
+          "hitRate": 0.6287878787878788
+        },
+        {
+          "attribute": "credentials",
+          "level": "25",
+          "hitRate": 0.5961538461538461
+        },
+        {
+          "attribute": "credentials",
+          "level": "Unlimited",
+          "hitRate": 0.5692307692307692
+        }
+      ],
+      "pricePoint": [
+        {
+          "price": 0,
+          "shareChosen": 0.803921568627451
+        },
+        {
+          "price": 99,
+          "shareChosen": 0.7647058823529411
+        },
+        {
+          "price": 149,
+          "shareChosen": 0.5512820512820513
+        },
+        {
+          "price": 199,
+          "shareChosen": 0.3026315789473684
+        },
+        {
+          "price": 249,
+          "shareChosen": 0.5
+        },
+        {
+          "price": 299,
+          "shareChosen": 0.35555555555555557
+        },
+        {
+          "price": 399,
+          "shareChosen": 0.20588235294117646
+        },
+        {
+          "price": 499,
+          "shareChosen": 0.18
+        },
+        {
+          "price": 599,
+          "shareChosen": 0.05319148936170213
+        },
+        {
+          "price": 699,
+          "shareChosen": 0.05128205128205128
+        }
+      ]
+    },
+    {
+      "segment": "Career Goal",
+      "segmentValue": "MBA admit",
+      "noneRate": 0.4111111111111111,
+      "topChosenFeatures": [
+        {
+          "attribute": "price",
+          "level": "0",
+          "hitRate": 0.84375
+        },
+        {
+          "attribute": "price",
+          "level": "149",
+          "hitRate": 0.7647058823529411
+        },
+        {
+          "attribute": "price",
+          "level": "99",
+          "hitRate": 0.6730769230769231
+        },
+        {
+          "attribute": "annualDiscount",
+          "level": "30",
+          "hitRate": 0.6428571428571429
+        },
+        {
+          "attribute": "atsScans",
+          "level": "25 + AI",
+          "hitRate": 0.3888888888888889
+        }
+      ],
+      "pricePoint": [
+        {
+          "price": 0,
+          "shareChosen": 0.84375
+        },
+        {
+          "price": 99,
+          "shareChosen": 0.6730769230769231
+        },
+        {
+          "price": 149,
+          "shareChosen": 0.7647058823529411
+        },
+        {
+          "price": 199,
+          "shareChosen": 0.35294117647058826
+        },
+        {
+          "price": 249,
+          "shareChosen": 0.15625
+        },
+        {
+          "price": 299,
+          "shareChosen": 0
+        },
+        {
+          "price": 399,
+          "shareChosen": 0
+        },
+        {
+          "price": 499,
+          "shareChosen": 0
+        },
+        {
+          "price": 599,
+          "shareChosen": 0.023809523809523808
+        },
+        {
+          "price": 699,
+          "shareChosen": 0
+        }
+      ]
+    },
+    {
+      "segment": "Current Role",
+      "segmentValue": "Student",
+      "noneRate": 0.475,
+      "topChosenFeatures": [
+        {
+          "attribute": "price",
+          "level": "0",
+          "hitRate": 0.8392857142857143
+        },
+        {
+          "attribute": "price",
+          "level": "99",
+          "hitRate": 0.7096774193548387
+        },
+        {
+          "attribute": "price",
+          "level": "149",
+          "hitRate": 0.4864864864864865
+        },
+        {
+          "attribute": "annualDiscount",
+          "level": "30",
+          "hitRate": 0.3854166666666667
+        },
+        {
+          "attribute": "credentials",
+          "level": "Unlimited",
+          "hitRate": 0.3673469387755102
+        }
+      ],
+      "pricePoint": [
+        {
+          "price": 0,
+          "shareChosen": 0.8392857142857143
+        },
+        {
+          "price": 99,
+          "shareChosen": 0.7096774193548387
+        },
+        {
+          "price": 149,
+          "shareChosen": 0.4864864864864865
+        },
+        {
+          "price": 199,
+          "shareChosen": 0.2647058823529412
+        },
+        {
+          "price": 249,
+          "shareChosen": 0.19444444444444445
+        },
+        {
+          "price": 299,
+          "shareChosen": 0.10606060606060606
+        },
+        {
+          "price": 399,
+          "shareChosen": 0.041666666666666664
+        },
+        {
+          "price": 499,
+          "shareChosen": 0
+        },
+        {
+          "price": 599,
+          "shareChosen": 0
+        },
+        {
+          "price": 699,
+          "shareChosen": 0
+        }
+      ]
+    },
+    {
+      "segment": "Current Role",
+      "segmentValue": "Manager",
+      "noneRate": 0.06111111111111111,
+      "topChosenFeatures": [
+        {
+          "attribute": "price",
+          "level": "0",
+          "hitRate": 0.8589743589743589
+        },
+        {
+          "attribute": "credentials",
+          "level": "Unlimited",
+          "hitRate": 0.7534246575342466
+        },
+        {
+          "attribute": "price",
+          "level": "99",
+          "hitRate": 0.6666666666666666
+        },
+        {
+          "attribute": "price",
+          "level": "299",
+          "hitRate": 0.6463414634146342
+        },
+        {
+          "attribute": "credentials",
+          "level": "25",
+          "hitRate": 0.6454545454545455
+        }
+      ],
+      "pricePoint": [
+        {
+          "price": 0,
+          "shareChosen": 0.8589743589743589
+        },
+        {
+          "price": 99,
+          "shareChosen": 0.6666666666666666
+        },
+        {
+          "price": 149,
+          "shareChosen": 0.5348837209302325
+        },
+        {
+          "price": 199,
+          "shareChosen": 0.5294117647058824
+        },
+        {
+          "price": 249,
+          "shareChosen": 0.5285714285714286
+        },
+        {
+          "price": 299,
+          "shareChosen": 0.6463414634146342
+        },
+        {
+          "price": 399,
+          "shareChosen": 0.3870967741935484
+        },
+        {
+          "price": 499,
+          "shareChosen": 0.21212121212121213
+        },
+        {
+          "price": 599,
+          "shareChosen": 0.14473684210526316
+        },
+        {
+          "price": 699,
+          "shareChosen": 0.09090909090909091
+        }
+      ]
+    },
+    {
+      "segment": "Current Role",
+      "segmentValue": "Senior IC",
+      "noneRate": 0.10789473684210527,
+      "topChosenFeatures": [
+        {
+          "attribute": "price",
+          "level": "0",
+          "hitRate": 0.7816091954022989
+        },
+        {
+          "attribute": "price",
+          "level": "99",
+          "hitRate": 0.777027027027027
+        },
+        {
+          "attribute": "price",
+          "level": "149",
+          "hitRate": 0.717948717948718
+        },
+        {
+          "attribute": "credentials",
+          "level": "25",
+          "hitRate": 0.6380597014925373
+        },
+        {
+          "attribute": "defenceInterview",
+          "level": "Unlimited",
+          "hitRate": 0.6
+        }
+      ],
+      "pricePoint": [
+        {
+          "price": 0,
+          "shareChosen": 0.7816091954022989
+        },
+        {
+          "price": 99,
+          "shareChosen": 0.777027027027027
+        },
+        {
+          "price": 149,
+          "shareChosen": 0.717948717948718
+        },
+        {
+          "price": 199,
+          "shareChosen": 0.547945205479452
+        },
+        {
+          "price": 249,
+          "shareChosen": 0.47368421052631576
+        },
+        {
+          "price": 299,
+          "shareChosen": 0.5075757575757576
+        },
+        {
+          "price": 399,
+          "shareChosen": 0.2222222222222222
+        },
+        {
+          "price": 499,
+          "shareChosen": 0.23369565217391305
+        },
+        {
+          "price": 599,
+          "shareChosen": 0.07857142857142857
+        },
+        {
+          "price": 699,
+          "shareChosen": 0.06944444444444445
+        }
+      ]
+    },
+    {
+      "segment": "Current Role",
+      "segmentValue": "Founder",
+      "noneRate": 0.12857142857142856,
+      "topChosenFeatures": [
+        {
+          "attribute": "credentials",
+          "level": "Unlimited",
+          "hitRate": 0.8076923076923077
+        },
+        {
+          "attribute": "price",
+          "level": "149",
+          "hitRate": 0.75
+        },
+        {
+          "attribute": "annualDiscount",
+          "level": "35",
+          "hitRate": 0.75
+        },
+        {
+          "attribute": "price",
+          "level": "99",
+          "hitRate": 0.7222222222222222
+        },
+        {
+          "attribute": "price",
+          "level": "0",
+          "hitRate": 0.6666666666666666
+        }
+      ],
+      "pricePoint": [
+        {
+          "price": 0,
+          "shareChosen": 0.6666666666666666
+        },
+        {
+          "price": 99,
+          "shareChosen": 0.7222222222222222
+        },
+        {
+          "price": 149,
+          "shareChosen": 0.75
+        },
+        {
+          "price": 199,
+          "shareChosen": 0.5294117647058824
+        },
+        {
+          "price": 249,
+          "shareChosen": 0.6153846153846154
+        },
+        {
+          "price": 299,
+          "shareChosen": 0.5
+        },
+        {
+          "price": 399,
+          "shareChosen": 0.2857142857142857
+        },
+        {
+          "price": 499,
+          "shareChosen": 0.15384615384615385
+        },
+        {
+          "price": 599,
+          "shareChosen": 0.17647058823529413
+        },
+        {
+          "price": 699,
+          "shareChosen": 0.22727272727272727
+        }
+      ]
+    },
+    {
+      "segment": "Current Role",
+      "segmentValue": "Junior IC",
+      "noneRate": 0.2642857142857143,
+      "topChosenFeatures": [
+        {
+          "attribute": "price",
+          "level": "99",
+          "hitRate": 0.8163265306122449
+        },
+        {
+          "attribute": "price",
+          "level": "0",
+          "hitRate": 0.7702702702702703
+        },
+        {
+          "attribute": "price",
+          "level": "149",
+          "hitRate": 0.6
+        },
+        {
+          "attribute": "credentials",
+          "level": "Unlimited",
+          "hitRate": 0.5967741935483871
+        },
+        {
+          "attribute": "atsScans",
+          "level": "Unlimited + AI",
+          "hitRate": 0.5735294117647058
+        }
+      ],
+      "pricePoint": [
+        {
+          "price": 0,
+          "shareChosen": 0.7702702702702703
+        },
+        {
+          "price": 99,
+          "shareChosen": 0.8163265306122449
+        },
+        {
+          "price": 149,
+          "shareChosen": 0.6
+        },
+        {
+          "price": 199,
+          "shareChosen": 0.5
+        },
+        {
+          "price": 249,
+          "shareChosen": 0.4318181818181818
+        },
+        {
+          "price": 299,
+          "shareChosen": 0.15476190476190477
+        },
+        {
+          "price": 399,
+          "shareChosen": 0.1875
+        },
+        {
+          "price": 499,
+          "shareChosen": 0.22413793103448276
+        },
+        {
+          "price": 599,
+          "shareChosen": 0.043478260869565216
+        },
+        {
+          "price": 699,
+          "shareChosen": 0.020833333333333332
+        }
+      ]
+    }
+  ],
+  "bundleRecommendations": [
+    {
+      "tier": "Free",
+      "price": 0,
+      "bundle": {
+        "credentials": 1,
+        "atsScans": "3 basic",
+        "careerPath": 1,
+        "defenceInterview": "None",
+        "leaderboard": "Standard",
+        "annualDiscount": 0
+      }
+    },
+    {
+      "tier": "Pro",
+      "price": 299,
+      "bundle": {
+        "credentials": "25",
+        "atsScans": "10 + AI",
+        "careerPath": 5,
+        "defenceInterview": "2/mo",
+        "leaderboard": "Boosted",
+        "annualDiscount": 30
+      }
+    },
+    {
+      "tier": "Pro+",
+      "price": 499,
+      "bundle": {
+        "credentials": "Unlimited",
+        "atsScans": "Unlimited + AI",
+        "careerPath": "Unlimited",
+        "defenceInterview": "Unlimited",
+        "leaderboard": "Top of feed",
+        "annualDiscount": 40
+      }
+    }
+  ]
+}

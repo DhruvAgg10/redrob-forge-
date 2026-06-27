@@ -39,3 +39,12 @@ yarn-error.log*
 # typescript
 *.tsbuildinfo
 next-env.d.ts
+
+# SQLite databases (we're using Postgres in prod)
+*.db
+*.db-journal
+prisma/dev.db
+
+# Local-only real survey data (lives in Postgres in prod)
+data/survey/real-responses.json
+data/survey/real-summary.json

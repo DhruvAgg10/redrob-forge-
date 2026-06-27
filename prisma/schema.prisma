@@ -1,0 +1,222 @@
+generator client {
+  provider = "prisma-client-js"
+  output   = "../node_modules/.prisma/client"
+}
+
+datasource db {
+  provider = "postgresql"
+  url      = env("DATABASE_URL")
+}
+
+model User {
+  id              String   @id @default(cuid())
+  email           String   @unique
+  fullName        String
+  avatarUrl       String?
+  did             String   @unique
+  role            String   @default("CANDIDATE")
+  aadhaarVerified Boolean  @default(false)
+  digiLockerLinked Boolean @default(false)
+  uanVerified     Boolean  @default(false)
+  trustScore      Int      @default(50)
+  createdAt       DateTime @default(now())
+
+  skillTests      SkillTestAttempt[]
+  credentials     Credential[]
+  submissions     Submission[]
+  trials          TrialParticipant[]
+  careerGoals     CareerGoal[]
+
+  company         Company?  @relation(fields: [companyId], references: [id])
+  companyId       String?
+}
+
+model Company {
+  id              String   @id @default(cuid())
+  name            String
+  domain          String   @unique
+  mcaVerified     Boolean  @default(false)
+  gstVerified     Boolean  @default(false)
+  trustScore      Int      @default(50)
+  hireRate        Float    @default(0)
+  ghostRate       Float    @default(0)
+  industry        String?
+  createdAt       DateTime @default(now())
+
+  members         User[]
+  challenges      Challenge[]
+}
+
+model Skill {
+  id              String   @id @default(cuid())
+  slug            String   @unique
+  name            String
+  category        String
+  description     String
+  escoCode        String?
+  nsqfLevel       Int?
+
+  tests           SkillTest[]
+  credentials     Credential[]
+  challengeReqs   ChallengeRequirement[]
+}
+
+model SkillTest {
+  id              String   @id @default(cuid())
+  skillId         String
+  skill           Skill    @relation(fields: [skillId], references: [id])
+  level           Int
+  durationMin     Int      @default(60)
+  questionPoolId  String
+
+  attempts        SkillTestAttempt[]
+}
+
+model SkillTestAttempt {
+  id              String   @id @default(cuid())
+  userId          String
+  user            User     @relation(fields: [userId], references: [id])
+  testId          String
+  test            SkillTest @relation(fields: [testId], references: [id])
+  startedAt       DateTime @default(now())
+  completedAt     DateTime?
+  score           Int?
+  passed          Boolean  @default(false)
+  questionsLog    String
+  credentialId    String?
+}
+
+model Credential {
+  id              String   @id @default(cuid())
+  userId          String
+  user            User     @relation(fields: [userId], references: [id])
+  type            String
+  skillId         String?
+  skill           Skill?   @relation(fields: [skillId], references: [id])
+  level           Int      @default(1)
+  evidenceUrl     String?
+  jsonld          String
+  signature       String
+  issuedAt        DateTime @default(now())
+  expiresAt       DateTime?
+  revokedAt       DateTime?
+}
+
+model Challenge {
+  id              String   @id @default(cuid())
+  companyId       String
+  company         Company  @relation(fields: [companyId], references: [id])
+  title           String
+  brief           String
+  roleFamily      String
+  templateId      String?
+  mode            String   @default("CLOSED")
+  ndaRequired     Boolean  @default(true)
+  stipendINR      Int
+  maxApplicants   Int      @default(50)
+  status          String   @default("OPEN")
+  postedAt        DateTime @default(now())
+  closingAt       DateTime
+  rubric          String
+
+  requirements    ChallengeRequirement[]
+  submissions     Submission[]
+  trial           Trial?
+}
+
+model ChallengeRequirement {
+  id            String   @id @default(cuid())
+  challengeId   String
+  challenge     Challenge @relation(fields: [challengeId], references: [id])
+  skillId       String
+  skill         Skill    @relation(fields: [skillId], references: [id])
+  minLevel      Int      @default(1)
+}
+
+model Submission {
+  id              String   @id @default(cuid())
+  userId          String
+  user            User     @relation(fields: [userId], references: [id])
+  challengeId     String
+  challenge       Challenge @relation(fields: [challengeId], references: [id])
+  artifactUrl     String?
+  notes           String?
+  aiScore         Float?
+  aiBreakdown     String?
+  peerScore       Float?
+  defenceScore    Float?
+  defenceTranscript String?
+  compositeRank   Int?
+  shortlisted     Boolean  @default(false)
+  submittedAt     DateTime @default(now())
+}
+
+model Trial {
+  id              String   @id @default(cuid())
+  challengeId     String   @unique
+  challenge       Challenge @relation(fields: [challengeId], references: [id])
+  startsAt        DateTime
+  endsAt          DateTime
+  status          String   @default("SCHEDULED")
+  participants    TrialParticipant[]
+}
+
+model TrialParticipant {
+  id              String   @id @default(cuid())
+  trialId         String
+  trial           Trial    @relation(fields: [trialId], references: [id])
+  userId          String
+  user            User     @relation(fields: [userId], references: [id])
+  stipendINR      Int
+  hireOutcome     Boolean?
+  candidateRating Float?
+  companyRating   Float?
+}
+
+model CareerGoal {
+  id              String   @id @default(cuid())
+  userId          String
+  user            User     @relation(fields: [userId], references: [id])
+  goalRole        String
+  goalIndustry    String?
+  goalLPA         Int?
+  createdAt       DateTime @default(now())
+  pathsJson       String
+}
+
+model RoleTransition {
+  id              String   @id @default(cuid())
+  fromRole        String
+  toRole          String
+  industry        String?
+  yearsTypical    Float
+  avgLPAStart     Int
+  avgLPAEnd       Int
+  requiredSkills  String
+  difficulty      Int
+}
+
+// ===== Survey responses (real respondents via /survey/take) =====
+model SurveyResponse {
+  id           String   @id @default(cuid())
+  publicId     String   @unique
+  submittedAt  DateTime @default(now())
+  name         String?
+  city         String
+  state        String
+  age          String
+  income       String
+  role         String
+  goal         String
+  choices      String   // JSON stringified array
+  maxWTP       Int?
+  quote        String   @db.Text
+}
+
+// ===== AI summary cache (regenerated on each new submission) =====
+model SurveySummary {
+  id            Int      @id @default(1)
+  summary       String   @db.Text
+  responseCount Int      @default(0)
+  generatedAt   DateTime @default(now())
+}

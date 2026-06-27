@@ -1,0 +1,308 @@
+[
+  {
+    "personaId": 1,
+    "taskNum": 1,
+    "model": "llama",
+    "choice": "A",
+    "reason": "It's more affordable and meets my basic needs for skill credentials and career development without breaking the bank.",
+    "durationMs": 803,
+    "source": "llm"
+  },
+  {
+    "personaId": 1,
+    "taskNum": 1,
+    "model": "qwen",
+    "choice": "A",
+    "reason": "₹199/month is more affordable and I can still get value from the limited features.",
+    "durationMs": 1985,
+    "source": "llm"
+  },
+  {
+    "personaId": 1,
+    "taskNum": 2,
+    "model": "llama",
+    "choice": "A",
+    "reason": "I choose Bundle A because it's cheaper and I'm not sure I need unlimited skill credentials every month.",
+    "durationMs": 920,
+    "source": "llm"
+  },
+  {
+    "personaId": 1,
+    "taskNum": 2,
+    "model": "qwen",
+    "choice": "None",
+    "reason": "Both bundles are too expensive and I'm not convinced I'll use all the features daily.",
+    "durationMs": 1894,
+    "source": "llm"
+  },
+  {
+    "personaId": 1,
+    "taskNum": 3,
+    "model": "llama",
+    "choice": "B",
+    "reason": "It's free, so I can try it out without committing to a paid subscription, which is important to me given my current no-income status.",
+    "durationMs": 787,
+    "source": "llm"
+  },
+  {
+    "personaId": 1,
+    "taskNum": 3,
+    "model": "qwen",
+    "choice": "None",
+    "reason": "Both bundles are too expensive and don't offer enough value for my budget and needs.",
+    "durationMs": 1749,
+    "source": "llm"
+  },
+  {
+    "personaId": 1,
+    "taskNum": 4,
+    "model": "llama",
+    "choice": "A",
+    "reason": "It's more affordable and still offers a decent number of skill credentials and other features that I can use daily.",
+    "durationMs": 853,
+    "source": "llm"
+  },
+  {
+    "personaId": 1,
+    "taskNum": 4,
+    "model": "qwen",
+    "choice": "None",
+    "reason": "I am very price-sensitive and the value doesn't justify the cost for me right now.",
+    "durationMs": 1902,
+    "source": "llm"
+  },
+  {
+    "personaId": 1,
+    "taskNum": 5,
+    "model": "llama",
+    "choice": "A",
+    "reason": "Bundle A is cheaper and still offers enough features for my needs, especially since I'm on a tight budget as a student.",
+    "durationMs": 564,
+    "source": "llm"
+  },
+  {
+    "personaId": 1,
+    "taskNum": 5,
+    "model": "qwen",
+    "choice": "None",
+    "reason": "Both options are too expensive and I'm not convinced I'll use all the features daily.",
+    "durationMs": 1534,
+    "source": "llm"
+  },
+  {
+    "personaId": 1,
+    "taskNum": 6,
+    "model": "llama",
+    "choice": "A",
+    "reason": "It offers more skill credentials and Career Path scans at a significantly lower price point.",
+    "durationMs": 468,
+    "source": "llm"
+  },
+  {
+    "personaId": 1,
+    "taskNum": 6,
+    "model": "qwen",
+    "choice": "A",
+    "reason": " ₹199/month is more affordable and offers more value in terms of skill credentials and practice, which aligns with my goals.",
+    "durationMs": 1640,
+    "source": "llm"
+  },
+  {
+    "personaId": 1,
+    "taskNum": 7,
+    "model": "llama",
+    "choice": "B",
+    "reason": "It's the most affordable option with a decent number of Career Path scans per month.",
+    "durationMs": 585,
+    "source": "llm"
+  },
+  {
+    "personaId": 1,
+    "taskNum": 7,
+    "model": "qwen",
+    "choice": "None",
+    "reason": "Both bundles are too expensive and don't offer enough value to justify the cost for my current situation.",
+    "durationMs": 1422,
+    "source": "llm"
+  },
+  {
+    "personaId": 1,
+    "taskNum": 8,
+    "model": "llama",
+    "choice": "B",
+    "reason": "It's free and still offers some useful features like unlimited AI ATS scans, so it's a low-risk option for me to try out.",
+    "durationMs": 514,
+    "source": "llm"
+  },
+  {
+    "personaId": 1,
+    "taskNum": 8,
+    "model": "qwen",
+    "choice": "None",
+    "reason": "Both options are too expensive and don't offer enough daily value for my current situation.",
+    "durationMs": 1379,
+    "source": "llm"
+  },
+  {
+    "personaId": 2,
+    "taskNum": 1,
+    "model": "qwen",
+    "choice": "A",
+    "reason": "The unlimited features align with my goal of not feeling limited, and the premium branding appeals to my aspirations.",
+    "durationMs": 1735,
+    "source": "llm"
+  },
+  {
+    "personaId": 83,
+    "taskNum": 7,
+    "model": "qwen",
+    "choice": "A",
+    "reason": "The unlimited AI ATS scans and career path scans align with my goal of cracking a top MBA and I don't want to feel limited in my preparation.",
+    "durationMs": 1909,
+    "source": "llm"
+  },
+  {
+    "personaId": 83,
+    "taskNum": 8,
+    "model": "llama",
+    "choice": "A",
+    "reason": "I prefer the Defence Interview practice being Unlimited over having unlimited skill credentials.",
+    "durationMs": 614,
+    "source": "llm"
+  },
+  {
+    "personaId": 83,
+    "taskNum": 8,
+    "model": "qwen",
+    "choice": "B",
+    "reason": "Unlimited skill credentials and AI ATS scans align with my goal of cracking a top MBA and I hate feeling limited.",
+    "durationMs": 1848,
+    "source": "llm"
+  },
+  {
+    "personaId": 84,
+    "taskNum": 1,
+    "model": "llama",
+    "choice": "B",
+    "reason": "I prefer Bundle B for its unlimited Career Path scans and Defence Interview practice at a comparable price to Bundle A with an annual discount.",
+    "durationMs": 527,
+    "source": "llm"
+  },
+  {
+    "personaId": 84,
+    "taskNum": 1,
+    "model": "qwen",
+    "choice": "None",
+    "reason": "Neither bundle offers enough unique value to justify the monthly cost over free alternatives.",
+    "durationMs": 1551,
+    "source": "llm"
+  },
+  {
+    "personaId": 84,
+    "taskNum": 2,
+    "model": "llama",
+    "choice": "A",
+    "reason": "I choose Bundle A because it offers more skill credentials and unlimited AI ATS scans, which seems valuable for my career growth.",
+    "durationMs": 588,
+    "source": "llm"
+  },
+  {
+    "personaId": 84,
+    "taskNum": 2,
+    "model": "qwen",
+    "choice": "None",
+    "reason": "Neither bundle justifies the monthly cost given my cautious approach to subscriptions and the availability of free alternatives.",
+    "durationMs": 1660,
+    "source": "llm"
+  },
+  {
+    "personaId": 84,
+    "taskNum": 3,
+    "model": "llama",
+    "choice": "A",
+    "reason": "I can utilize the free bundle to test the platform's usefulness before considering a paid subscription.",
+    "durationMs": 635,
+    "source": "llm"
+  },
+  {
+    "personaId": 84,
+    "taskNum": 3,
+    "model": "qwen",
+    "choice": "None",
+    "reason": "I won't pay for a subscription unless I'm sure I'll use it daily, and even the free option doesn't seem necessary for my needs.",
+    "durationMs": 1691,
+    "source": "llm"
+  },
+  {
+    "personaId": 84,
+    "taskNum": 4,
+    "model": "llama",
+    "choice": "A",
+    "reason": "It offers more skill credentials per month at a significantly lower price point.",
+    "durationMs": 587,
+    "source": "llm"
+  },
+  {
+    "personaId": 84,
+    "taskNum": 4,
+    "model": "qwen",
+    "choice": "None",
+    "reason": "Neither bundle offers enough value to justify the cost for my needs.",
+    "durationMs": 1353,
+    "source": "llm"
+  },
+  {
+    "personaId": 84,
+    "taskNum": 5,
+    "model": "llama",
+    "choice": "None",
+    "reason": "Neither bundle offers enough value to justify the cost, especially with an annual upfront payment feeling like a trap.",
+    "durationMs": 570,
+    "source": "llm"
+  },
+  {
+    "personaId": 84,
+    "taskNum": 5,
+    "model": "qwen",
+    "choice": "B",
+    "reason": "The free option with 30% off annual is a safer bet and still provides valuable benefits without the monthly financial commitment.",
+    "durationMs": 1434,
+    "source": "llm"
+  },
+  {
+    "personaId": 84,
+    "taskNum": 6,
+    "model": "llama",
+    "choice": "B",
+    "reason": "It's free, so I can try it out without committing to a paid subscription.",
+    "durationMs": 590,
+    "source": "llm"
+  },
+  {
+    "personaId": 84,
+    "taskNum": 6,
+    "model": "qwen",
+    "choice": "B",
+    "reason": "Free options are always worth exploring, especially when they offer valuable features like AI ATS scans.",
+    "durationMs": 1228,
+    "source": "llm"
+  },
+  {
+    "personaId": 84,
+    "taskNum": 7,
+    "model": "llama",
+    "choice": "A",
+    "reason": "It's the most affordable option that still provides some useful features for my career development.",
+    "durationMs": 606,
+    "source": "llm"
+  },
+  {
+    "personaId": 84,
+    "taskNum": 7,
+    "model": "qwen",
+    "choice": "None",
+    "reason": "I'm skeptical about the value and don't want to commit to a monthly subscription without being sure I'll use it daily.",
+    "durationMs": 1561,
+    "source": "llm"
+  }
+]

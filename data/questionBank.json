@@ -1,0 +1,14 @@
+{
+  "_default": [
+    {"id":"q1","difficulty":1,"type":"mcq","question":"Which is a fundamental concept in this skill?","options":["Foundational A","Unrelated B","Wrong C","Off-topic D"],"answer":"Foundational A","explanation":"This is the baseline concept everyone learns first."},
+    {"id":"q2","difficulty":2,"type":"mcq","question":"Which trade-off matters most in everyday work here?","options":["Speed vs correctness","Color vs taste","Day vs night","Sound vs sight"],"answer":"Speed vs correctness","explanation":"All non-trivial decisions in this domain hinge on it."},
+    {"id":"q3","difficulty":3,"type":"mcq","question":"In a typical scaling problem, which is the right first response?","options":["Measure","Rewrite","Ignore","Restart"],"answer":"Measure","explanation":"You cannot optimize what you do not measure."},
+    {"id":"q4","difficulty":3,"type":"mcq","question":"What is the most common cause of project regret here?","options":["Premature optimization","Too much documentation","Too many tests","Too small a team"],"answer":"Premature optimization","explanation":"Donald Knuth was right."},
+    {"id":"q5","difficulty":4,"type":"mcq","question":"Which concept best generalizes the typical pitfall pattern?","options":["Hidden state","Excess clarity","Honest reporting","Loose deadlines"],"answer":"Hidden state","explanation":"Hidden state surprises everyone downstream."},
+    {"id":"q6","difficulty":4,"type":"mcq","question":"Which heuristic is most useful when the data is noisy?","options":["Look at distributions, not points","Pick the median observation","Average everything","Truncate aggressively"],"answer":"Look at distributions, not points","explanation":"Distributions reveal what point estimates hide."},
+    {"id":"q7","difficulty":5,"type":"mcq","question":"At expert level, which trade-off do you accept on purpose?","options":["Some local sub-optimality for global simplicity","Always-best local choices","Never re-evaluating decisions","Maximum complexity"],"answer":"Some local sub-optimality for global simplicity","explanation":"Experts manage complexity budgets."},
+    {"id":"q8","difficulty":5,"type":"mcq","question":"Which property best signals senior judgment?","options":["Knowing when not to act","Acting fastest","Acting alone","Acting silently"],"answer":"Knowing when not to act","explanation":"Restraint compounds across a career."},
+    {"id":"q9","difficulty":2,"type":"mcq","question":"Which is a common rookie mistake?","options":["Skipping the brief","Reading the brief twice","Asking questions","Writing tests"],"answer":"Skipping the brief","explanation":"Most rework starts with a misread brief."},
+    {"id":"q10","difficulty":3,"type":"mcq","question":"Which collaboration habit matters most under pressure?","options":["Writing decisions down","Talking only","Working alone","Avoiding stakeholders"],"answer":"Writing decisions down","explanation":"Written decisions resist drift."}
+  ]
+}

@@ -1,0 +1,97 @@
+[
+  {
+    "id":"be-sprint-v1",
+    "title":"Backend Engineer 2-Week Sprint",
+    "roleFamily":"Backend Engineer",
+    "brief":"Build a payment-reconciliation service that processes 1M transactions/day, handles partial failures, and exposes metrics. We provide synthetic transaction data and an OpenAPI spec.",
+    "rubric":{
+      "criteria":[
+        {"name":"Correctness","weight":30,"description":"All reconciliation cases pass"},
+        {"name":"Performance","weight":20,"description":"P95 < 200ms under load"},
+        {"name":"Code Quality","weight":20},
+        {"name":"Documentation","weight":15},
+        {"name":"Test Coverage","weight":15}
+      ],
+      "evidence":["repo","load-test-output","architecture-doc"]
+    },
+    "prereqSkills":["nodejs","postgresql-advanced","system-design"]
+  },
+  {
+    "id":"pm-discovery-v1",
+    "title":"PM Discovery Sprint",
+    "roleFamily":"Product Manager",
+    "brief":"Analyze our user-onboarding funnel. Conduct 5 user interviews (we provide access). Produce: insights doc, prioritized opportunity list, 30-day execution plan.",
+    "rubric":{
+      "criteria":[
+        {"name":"Insight quality","weight":35},
+        {"name":"Prioritization rigor","weight":25},
+        {"name":"Execution plan realism","weight":25},
+        {"name":"Communication clarity","weight":15}
+      ],
+      "evidence":["insights-doc","priority-matrix","30-day-plan","user-interview-notes"]
+    },
+    "prereqSkills":["product-discovery","prioritization-frameworks","data-analysis"]
+  },
+  {
+    "id":"frontend-sprint-v1",
+    "title":"Frontend Engineering 1-Week Build",
+    "roleFamily":"Frontend Engineer",
+    "brief":"Ship a responsive dashboard with real-time updates, accessible to WCAG AA, and bundle under 200kb.",
+    "rubric":{
+      "criteria":[
+        {"name":"Accessibility","weight":25},
+        {"name":"Performance","weight":25},
+        {"name":"Visual fidelity","weight":25},
+        {"name":"Code Quality","weight":25}
+      ],
+      "evidence":["repo","lighthouse-report","loom-walkthrough"]
+    },
+    "prereqSkills":["react-advanced","typescript","css-architecture"]
+  },
+  {
+    "id":"ds-forecast-v1",
+    "title":"Data Scientist Forecast Sprint",
+    "roleFamily":"Data Scientist",
+    "brief":"Forecast 14-day demand on our provided 18-month transaction dataset. Beat the SARIMA baseline.",
+    "rubric":{
+      "criteria":[
+        {"name":"Model accuracy","weight":40},
+        {"name":"Reasoning","weight":30},
+        {"name":"Reproducibility","weight":30}
+      ],
+      "evidence":["notebook","writeup","model-artifact"]
+    },
+    "prereqSkills":["ml-fundamentals","sql","python-backend"]
+  },
+  {
+    "id":"design-audit-v1",
+    "title":"Designer Audit Sprint",
+    "roleFamily":"Product Designer",
+    "brief":"Audit our existing checkout flow. Provide annotated heuristics, a redesigned flow, and a clickable prototype.",
+    "rubric":{
+      "criteria":[
+        {"name":"Heuristic depth","weight":30},
+        {"name":"Redesign quality","weight":40},
+        {"name":"Prototype polish","weight":30}
+      ],
+      "evidence":["figma-link","writeup"]
+    },
+    "prereqSkills":["figma","design-systems","user-research"]
+  },
+  {
+    "id":"growth-experiment-v1",
+    "title":"Growth Experiment Sprint",
+    "roleFamily":"Growth Marketer",
+    "brief":"Design and execute a 7-day acquisition experiment with a Rs. 25,000 budget. Report on CAC, ROAS, and learnings.",
+    "rubric":{
+      "criteria":[
+        {"name":"Hypothesis quality","weight":25},
+        {"name":"Execution","weight":25},
+        {"name":"Results","weight":25},
+        {"name":"Learnings","weight":25}
+      ],
+      "evidence":["plan-doc","ads-screenshots","report"]
+    },
+    "prereqSkills":["growth-marketing","performance-marketing","data-analysis"]
+  }
+]

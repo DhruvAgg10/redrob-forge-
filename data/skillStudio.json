@@ -1,0 +1,87 @@
+[
+  {
+    "slug": "market-sizing",
+    "name": "Market Sizing",
+    "tag": "Consulting · PM",
+    "blurb": "Estimate the size of a real market in 15 minutes.",
+    "prompt": "Estimate the annual revenue (in INR) of the electric two-wheeler market in India for 2026. Show your assumptions step-by-step, then state your final number with one sentence on the biggest source of uncertainty.",
+    "minWords": 120,
+    "rubric": [
+      "Structure: top-down or bottom-up explicitly stated",
+      "Assumptions: 4+ named with rough numbers",
+      "Arithmetic: final number is consistent with assumptions",
+      "Sensitivity: identifies the biggest uncertainty"
+    ]
+  },
+  {
+    "slug": "guesstimate",
+    "name": "Guesstimate",
+    "tag": "Consulting",
+    "blurb": "Crack an offbeat estimation under pressure.",
+    "prompt": "How many cups of chai are sold in Mumbai on a single weekday? Walk through your logic, assumptions, and the final number.",
+    "minWords": 100,
+    "rubric": [
+      "Population segmentation logic is explicit",
+      "Per-capita consumption assumption stated",
+      "Reasonable arithmetic",
+      "Honest about overestimates/underestimates"
+    ]
+  },
+  {
+    "slug": "prd-writing",
+    "name": "PRD Writing",
+    "tag": "Product",
+    "blurb": "Write a focused 1-page PRD for a real user problem.",
+    "prompt": "A FinTech app for college students sees 60% of new users abandon during KYC. Write a 1-page PRD for the fix. Include: problem statement, user persona, success metric, prioritized solution (3 bullets), what you'd cut.",
+    "minWords": 180,
+    "rubric": [
+      "Problem statement is sharp and quantified",
+      "Success metric is measurable and time-bound",
+      "Solution is prioritized — clear what comes first",
+      "Explicitly names what's NOT in scope"
+    ]
+  },
+  {
+    "slug": "three-statement",
+    "name": "3-Statement Model Logic",
+    "tag": "Finance",
+    "blurb": "Show you understand how P&L, BS, CF link.",
+    "prompt": "A company books ₹100Cr of revenue on credit (90-day terms). Working through it: (1) what changes in P&L this quarter, (2) what changes in the balance sheet, (3) what changes in cash flow statement, (4) what changes next quarter when cash is collected. Be specific about line items.",
+    "minWords": 140,
+    "rubric": [
+      "Correctly identifies revenue recognition in P&L this quarter",
+      "Identifies AR build on balance sheet",
+      "Correctly handles cash flow (operating activities adjustment)",
+      "Next-quarter reversal is right"
+    ]
+  },
+  {
+    "slug": "positioning-brief",
+    "name": "Positioning Brief",
+    "tag": "Marketing · Strategy",
+    "blurb": "Position a startup against an entrenched giant.",
+    "prompt": "You're launching a B2B accounting SaaS in India against Tally and Zoho Books. Write a one-paragraph positioning statement (March, Geoff Moore style): For [target], who [need], our product is [category] that [unique benefit], unlike [competitor], we [differentiator]. Then add 2 sentences on why this differentiator is defensible.",
+    "minWords": 90,
+    "rubric": [
+      "Follows positioning template structure",
+      "Target customer is narrow and specific",
+      "Differentiator is genuinely different, not a feature list",
+      "Defensibility argument holds up"
+    ]
+  },
+  {
+    "slug": "competitor-teardown",
+    "name": "Competitor Teardown",
+    "tag": "Strategy · PM",
+    "blurb": "Read a competitor's strategy from public signals.",
+    "prompt": "Pick Zomato's most recent product move you remember (e.g. Zomato Go, district, blinkit integration). In 5 short bullets: (1) what they shipped, (2) the business problem they were solving, (3) the implicit assumption they're betting on, (4) the biggest risk to that bet, (5) what you'd watch over 6 months to know if it worked.",
+    "minWords": 140,
+    "rubric": [
+      "Picks a real and recent move",
+      "Business problem is named, not feature description",
+      "Implicit bet is non-obvious",
+      "Risk is concrete and falsifiable",
+      "Leading indicator is measurable"
+    ]
+  }
+]
