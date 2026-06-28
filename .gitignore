@@ -48,3 +48,6 @@ prisma/dev.db
 # Local-only real survey data (lives in Postgres in prod)
 data/survey/real-responses.json
 data/survey/real-summary.json
+
+recovery-codes.txt
+*recovery*.txt

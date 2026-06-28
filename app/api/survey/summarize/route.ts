@@ -2,7 +2,12 @@ import { prisma } from '@/lib/prisma'
 import { chat, hasLLM } from '@/lib/llm'
 
 async function loadResponses() {
-  const rows = await prisma.surveyResponse.findMany({ orderBy: { submittedAt: 'desc' } })
+  let rows: any[] = []
+  try {
+    rows = await prisma.surveyResponse.findMany({ orderBy: { submittedAt: 'desc' } })
+  } catch {
+    return []
+  }
   return rows.map((r) => ({
     name: r.name || 'Anonymous',
     city: r.city,
@@ -47,33 +52,38 @@ Do not use bullet points or markdown — pure prose. Start with the headline num
   }
 }
 
+async function safeUpsert(summary: string, responseCount: number) {
+  try {
+    await prisma.surveySummary.upsert({
+      where: { id: 1 },
+      create: { id: 1, summary, responseCount },
+      update: { summary, responseCount, generatedAt: new Date() },
+    })
+  } catch {}
+}
+
 export async function POST() {
   const responses = await loadResponses()
   const summary = await buildSummary(responses)
-  await prisma.surveySummary.upsert({
-    where: { id: 1 },
-    create: { id: 1, summary, responseCount: responses.length },
-    update: { summary, responseCount: responses.length, generatedAt: new Date() },
-  })
+  await safeUpsert(summary, responses.length)
   return Response.json({ summary, responseCount: responses.length, generatedAt: new Date().toISOString() })
 }
 
 export async function GET() {
-  const cached = await prisma.surveySummary.findUnique({ where: { id: 1 } })
-  if (cached) {
-    return Response.json({
-      summary: cached.summary,
-      responseCount: cached.responseCount,
-      generatedAt: cached.generatedAt.toISOString(),
-    })
+  try {
+    const cached = await prisma.surveySummary.findUnique({ where: { id: 1 } })
+    if (cached) {
+      return Response.json({
+        summary: cached.summary,
+        responseCount: cached.responseCount,
+        generatedAt: cached.generatedAt.toISOString(),
+      })
+    }
+  } catch {
+    return Response.json({ summary: '', responseCount: 0 })
   }
-  // Auto-build on first read
   const responses = await loadResponses()
   const summary = await buildSummary(responses)
-  await prisma.surveySummary.upsert({
-    where: { id: 1 },
-    create: { id: 1, summary, responseCount: responses.length },
-    update: { summary, responseCount: responses.length, generatedAt: new Date() },
-  })
+  await safeUpsert(summary, responses.length)
   return Response.json({ summary, responseCount: responses.length, generatedAt: new Date().toISOString() })
 }
