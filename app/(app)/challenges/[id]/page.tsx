@@ -34,7 +34,7 @@ export default async function ChallengeDetail({ params }: { params: Promise<{ id
       <div className="flex flex-wrap gap-3 mt-4 text-xs">
         <div className="flex items-center gap-1 text-[#C8A461] font-mono"><Clock size={12}/> Closes {new Date(ch.closingAt).toLocaleDateString()}</div>
         <div className="flex items-center gap-1 text-[#C8A461] font-mono">{inr(ch.stipendINR)} stipend</div>
-        <div className="flex items-center gap-1 text-[#6B7280]"><Users size={12}/> {ch._count?.submissions || 0} applicants</div>
+        <div className="flex items-center gap-1 text-[#6B7280]"><Users size={12}/> {ch.submissions.length} applicants</div>
         <div className="text-[#7C5DDB] font-mono">{ch.mode} · NDA {ch.ndaRequired ? 'required' : 'optional'}</div>
       </div>
 
