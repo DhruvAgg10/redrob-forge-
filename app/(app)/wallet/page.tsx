@@ -6,14 +6,26 @@ import { CredentialSeal } from '@/components/CredentialSeal'
 import { ExternalLink } from 'lucide-react'
 
 export default async function Wallet() {
-  const user = await prisma.user.findFirst({ where: { role: 'CANDIDATE' } })
-  const creds = user
-    ? await prisma.credential.findMany({
+  let creds = [] as Array<{
+    id: string
+    type: string
+    level: number
+    issuedAt: Date | string
+    skill?: { name: string; category: string } | null
+  }>
+  let loadError = ''
+  try {
+    const user = await prisma.user.findFirst({ where: { role: 'CANDIDATE' } })
+    if (user) {
+      creds = await prisma.credential.findMany({
         where: { userId: user.id },
         include: { skill: true },
         orderBy: { issuedAt: 'desc' },
       })
-    : []
+    }
+  } catch (error: any) {
+    loadError = String(error.message || error)
+  }
 
   return (
     <div className="max-w-5xl mx-auto px-4 sm:px-8 py-8">
@@ -25,7 +37,13 @@ export default async function Wallet() {
         </p>
       </div>
 
-      {creds.length === 0 ? (
+      {loadError ? (
+        <div className="rounded-2xl border border-red-200 bg-red-50 p-12 text-center">
+          <div className="text-[#991B1B] mb-4">Wallet data unavailable.</div>
+          <div className="text-sm text-[#7F1D1D]">{loadError}</div>
+          <div className="mt-4 text-sm text-[#7F1D1D]">Restart the app after fixing your database configuration.</div>
+        </div>
+      ) : creds.length === 0 ? (
         <div className="rounded-2xl border border-dashed border-[#E5E7EB] p-12 text-center">
           <div className="text-[#6B7280] mb-4">No credentials yet.</div>
           <Link href="/skills" className="bg-[#111111] text-white px-4 py-2.5 rounded-xl text-sm">Open Skill Studio</Link>

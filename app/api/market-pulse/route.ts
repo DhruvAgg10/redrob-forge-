@@ -46,7 +46,22 @@ async function buildSnapshot() {
 
 export async function POST(req: NextRequest) {
   const { question } = await req.json() as { question: string }
-  const snapshot = await buildSnapshot()
+  let snapshot
+  try {
+    snapshot = await buildSnapshot()
+  } catch (error: any) {
+    const fallback = {
+      totals: { totalCandidates: 0, totalCompanies: 0, totalChallenges: 0, totalSubmissions: 0, totalCredentials: 0 },
+      challengesByIndustry: { Other: 1 },
+      challengesByRoleFamily: { Other: 1 },
+      topCredentialedSkills: { Other: 1 },
+      stipendDistribution: { 0: 1 },
+    }
+    return Response.json({
+      answer: `(Market Pulse error) ${String(error.message || error)}. Snapshot data unavailable.`,
+      chart: { title: 'Snapshot unavailable', bars: [{ label: 'No data', value: 1 }] },
+    })
+  }
 
   if (!hasLLM()) {
     return Response.json({

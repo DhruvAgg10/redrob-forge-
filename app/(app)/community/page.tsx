@@ -33,8 +33,15 @@ export default function Community() {
         headers: { 'content-type': 'application/json' },
         body: JSON.stringify({ question: q }),
       })
-      const d = await resp.json()
-      setRoom((r) => [...r, { who: 'ai', text: d.answer }])
+      const d = await resp.json().catch(() => null)
+      if (!resp.ok) {
+        const errorMessage = d?.answer || d?.error || `Room AI error (${resp.status})`
+        setRoom((r) => [...r, { who: 'ai', text: errorMessage }])
+        return
+      }
+      setRoom((r) => [...r, { who: 'ai', text: d?.answer ?? 'Room AI did not return an answer.' }])
+    } catch (error: any) {
+      setRoom((r) => [...r, { who: 'ai', text: `Room AI error: ${String(error?.message || error)}` }])
     } finally {
       setBusy(false)
     }

@@ -1,5 +1,5 @@
 'use client'
-import { useEffect, useState } from 'react'
+import { Suspense, useEffect, useState } from 'react'
 import Link from 'next/link'
 import { useSearchParams } from 'next/navigation'
 import { CareerPathChart } from '@/components/CareerPathChart'
@@ -11,7 +11,7 @@ type Path = {
   totalYears: number; totalLPAGain: number; difficulty: number
 }
 
-export default function PathResult() {
+function PathResultContent() {
   const params = useSearchParams()
   const goal = params.get('goal') || ''
   const [data, setData] = useState<any>(null)
@@ -104,5 +104,13 @@ export default function PathResult() {
         ))}
       </div>
     </div>
+  )
+}
+
+export default function PathResult() {
+  return (
+    <Suspense fallback={<div className="max-w-3xl mx-auto px-4 py-20 text-center"><div className="font-display italic text-2xl mt-3">Preparing your path results…</div></div>}>
+      <PathResultContent />
+    </Suspense>
   )
 }

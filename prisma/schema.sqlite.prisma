@@ -4,8 +4,8 @@ generator client {
 }
 
 datasource db {
-  provider = "postgresql"
-  url      = env("DATABASE_URL")
+  provider = "sqlite"
+  url      = "file:./dev.db"
 }
 
 model User {
@@ -196,7 +196,6 @@ model RoleTransition {
   difficulty      Int
 }
 
-// ===== Survey responses (real respondents via /survey/take) =====
 model SurveyResponse {
   id           String   @id @default(cuid())
   publicId     String   @unique
@@ -208,12 +207,11 @@ model SurveyResponse {
   income       String
   role         String
   goal         String
-  choices      String   // JSON stringified array
+  choices      String
   maxWTP       Int?
   quote        String
 }
 
-// ===== AI summary cache (regenerated on each new submission) =====
 model SurveySummary {
   id            Int      @id @default(1)
   summary       String

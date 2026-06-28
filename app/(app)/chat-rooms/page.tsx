@@ -1,3 +1,5 @@
+import Link from 'next/link'
+
 const AGENTS = [
   { name: 'Finn', color: '#86EFAC', desc: 'Handles budget queries, invoice questions and financial summaries within conversations.' },
   { name: 'Pixel', color: '#F9A8D4', desc: 'Reviews design decisions, gives feedback on UI/UX, suggests improvements, and system questions.' },
@@ -11,9 +13,11 @@ export default function ChatRooms() {
       <div className="text-center">
         <h1 className="font-semibold text-3xl">Chat Rooms</h1>
         <p className="text-[#6B7280] mt-2">One space for real-time conversations and collaboration.</p>
-        <button className="mt-6 px-6 py-2.5 rounded-lg bg-[#F4F4F5] text-[#111] text-sm font-medium hover:bg-[#E5E7EB]">
-          Start A Chatroom
-        </button>
+        <Link href="/community">
+          <button className="mt-6 px-6 py-2.5 rounded-lg bg-[#F4F4F5] text-[#111] text-sm font-medium hover:bg-[#E5E7EB]">
+            Start A Chatroom
+          </button>
+        </Link>
       </div>
 
       <div className="my-12 flex items-center gap-4">

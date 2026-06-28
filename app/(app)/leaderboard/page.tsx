@@ -5,21 +5,27 @@ import { prisma } from '@/lib/prisma'
 import { Sparkles } from 'lucide-react'
 
 export default async function Leaderboard() {
-  const users = await prisma.user.findMany({
-    where: { role: 'CANDIDATE' },
-    include: { credentials: true },
-  })
-  const ranked = users
-    .map((u) => ({
-      id: u.id,
-      name: u.fullName,
-      avatar: u.avatarUrl,
-      score: u.credentials.reduce((acc, c) => acc + c.level * 10, 0),
-      creds: u.credentials.length,
-      trust: u.trustScore,
-    }))
-    .sort((a, b) => b.score - a.score)
-    .slice(0, 30)
+  let ranked = [] as { id: string; name: string; avatar?: string | null; score: number; creds: number; trust: number }[]
+  let loadError = ''
+  try {
+    const users = await prisma.user.findMany({
+      where: { role: 'CANDIDATE' },
+      include: { credentials: true },
+    })
+    ranked = users
+      .map((u) => ({
+        id: u.id,
+        name: u.fullName,
+        avatar: u.avatarUrl,
+        score: u.credentials.reduce((acc, c) => acc + c.level * 10, 0),
+        creds: u.credentials.length,
+        trust: u.trustScore,
+      }))
+      .sort((a, b) => b.score - a.score)
+      .slice(0, 30)
+  } catch (error: any) {
+    loadError = String(error.message || error)
+  }
 
   return (
     <div className="max-w-4xl mx-auto px-4 sm:px-8 py-8">
@@ -31,7 +37,14 @@ export default async function Leaderboard() {
         </p>
       </div>
 
-      <div className="rounded-2xl border border-[#E5E7EB] overflow-hidden">
+      {loadError ? (
+        <div className="rounded-2xl border border-[#E5E7EB] p-8 bg-[#FEF2F2] text-[#B91C1C]">
+          <div className="font-semibold">Leaderboard unavailable right now.</div>
+          <div className="mt-2 text-sm text-[#92400E]">{loadError}</div>
+          <div className="mt-3 text-sm text-[#92400E]">Check your database configuration and restart the dev server.</div>
+        </div>
+      ) : (
+        <div className="rounded-2xl border border-[#E5E7EB] overflow-hidden">
         <table className="w-full text-sm">
           <thead className="bg-[#FAFAFA] text-xs uppercase tracking-wider text-[#A1A1AA] font-mono">
             <tr>
@@ -65,6 +78,7 @@ export default async function Leaderboard() {
           </tbody>
         </table>
       </div>
+      )}
     </div>
   )
 }
