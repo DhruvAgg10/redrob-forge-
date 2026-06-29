@@ -89,7 +89,7 @@ export default function Community() {
           </div>
 
           <div className="space-y-3">
-            {filtered.map((p) => (
+            {filtered.map((p: any) => (
               <div key={p.id} className="rounded-2xl border border-[#E5E7EB] bg-white p-5">
                 <div className="flex items-center gap-3 mb-2">
                   {p.avatar ? (

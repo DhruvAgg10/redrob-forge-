@@ -50,7 +50,7 @@ export default async function MentorPage({ params }: { params: Promise<{ id: str
           </div>
           <div className="text-xs text-[#6B7280] mt-1">Trust {user.trustScore} · {user.credentials.length} verified skills</div>
           <div className="mt-2 flex flex-wrap gap-1">
-            {user.credentials.map((c) => (
+            {user.credentials.map((c: any) => (
               <span key={c.id} className="text-[10px] px-2 py-0.5 rounded-full bg-[#FAFAFA] border border-[#F4F4F5]">
                 {c.skill?.name || c.type} <span className="text-[#A1A1AA]">L{c.level}</span>
               </span>
