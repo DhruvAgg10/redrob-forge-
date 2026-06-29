@@ -67,9 +67,11 @@ const prismaClient = dbAvailable
     })
   : createPrismaFallback()
 
-export const prisma = globalForPrisma.prisma || prismaClient
+// Cast to PrismaClient so strict-mode TypeScript accepts prisma.user.findFirst() etc.
+// At runtime this may be the fallback proxy — callers guard with (prisma as any).isFallback.
+export const prisma = (globalForPrisma.prisma || prismaClient) as PrismaClient
 
 // Cache the singleton in global to survive Next.js hot-reloads (dev) and module re-evals (prod).
 if (!(globalForPrisma.prisma as any)?.isFallback) {
-  globalForPrisma.prisma = prisma
+  globalForPrisma.prisma = prisma as any
 }
