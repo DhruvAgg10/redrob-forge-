@@ -72,7 +72,7 @@ export default async function Challenges() {
                 <div className="mt-3 pt-3 border-t border-[#E5E7EB] flex flex-wrap gap-1">
                   {c.requirements.slice(0, 3).map((r) => (
                     <span key={r.id} className="text-[10px] px-2 py-0.5 bg-[#FAFAFA] rounded-full">
-                      {r.skill.name} L{r.minLevel}+
+                      {`${r.skill.name} L${r.minLevel}+`}
                     </span>
                   ))}
                 </div>
