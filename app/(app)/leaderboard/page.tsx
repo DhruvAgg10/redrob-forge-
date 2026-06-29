@@ -8,6 +8,9 @@ export default async function Leaderboard() {
   let ranked = [] as { id: string; name: string; avatar?: string | null; score: number; creds: number; trust: number }[]
   let loadError = ''
   try {
+    if ((prisma as any).isFallback) {
+      throw new Error('Database not configured')
+    }
     const users = await prisma.user.findMany({
       where: { role: 'CANDIDATE' },
       include: { credentials: true },

@@ -15,6 +15,9 @@ export default async function Wallet() {
   }>
   let loadError = ''
   try {
+    if ((prisma as any).isFallback) {
+      throw new Error('Database not configured')
+    }
     const user = await prisma.user.findFirst({ where: { role: 'CANDIDATE' } })
     if (user) {
       creds = await prisma.credential.findMany({

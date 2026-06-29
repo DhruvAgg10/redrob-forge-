@@ -6,13 +6,32 @@ import { ArrowLeft, Sparkles } from 'lucide-react'
 
 export default async function MentorPage({ params }: { params: Promise<{ id: string }> }) {
   const { id } = await params
-  const user = await prisma.user.findUnique({
-    where: { id },
-    include: {
-      credentials: { include: { skill: true }, orderBy: { level: 'desc' }, take: 5 },
-    },
-  })
-  if (!user) notFound()
+  let user: any = null
+  let loadError = ''
+  try {
+    if ((prisma as any).isFallback) {
+      throw new Error('Database not configured')
+    }
+    user = await prisma.user.findUnique({
+      where: { id },
+      include: {
+        credentials: { include: { skill: true }, orderBy: { level: 'desc' }, take: 5 },
+      },
+    })
+    if (!user) notFound()
+  } catch (error: any) {
+    loadError = String(error.message || error)
+  }
+
+  if (loadError) {
+    return (
+      <div className="max-w-3xl mx-auto px-4 py-20 text-center">
+        <div className="text-2xl font-semibold">Mentor coach unavailable</div>
+        <div className="mt-4 text-sm text-[#6B7280]">{loadError}</div>
+        <div className="mt-6 text-sm text-[#7C5DDB]">Connect your database or deploy with a valid Vercel DATABASE_URL.</div>
+      </div>
+    )
+  }
 
   return (
     <div className="max-w-3xl mx-auto px-4 sm:px-8 py-6">

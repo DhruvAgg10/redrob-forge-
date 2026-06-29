@@ -48,6 +48,9 @@ export async function POST(req: NextRequest) {
   const { question } = await req.json() as { question: string }
   let snapshot
   try {
+    if ((prisma as any).isFallback) {
+      throw new Error('Database not configured')
+    }
     snapshot = await buildSnapshot()
   } catch (error: any) {
     const fallback = {

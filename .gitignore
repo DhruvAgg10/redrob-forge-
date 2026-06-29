@@ -51,3 +51,6 @@ data/survey/real-summary.json
 
 recovery-codes.txt
 *recovery*.txt
+.vercel
+.env*
+!.env.example
