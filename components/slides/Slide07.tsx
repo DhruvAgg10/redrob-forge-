@@ -1,46 +1,27 @@
 import { SlideWrap, SlideHeader, HoverCard, SlideSources } from '../PresentationDeck'
 
-// Ansoff Matrix: Existing/New Market × Existing/New Product
 const ANSOFF = [
+  { title: 'Market Penetration', forge: 'Replace Soon tiles for 700M Redrob users', risk: 'Low', timing: 'Y0-Y1', detail: 'Zero acquisition cost — Forge ships as NEW tiles in existing App Store.', color: '#2563EB' },
+  { title: 'Product Development', forge: 'Pro/Pro+ tiers (₹199-499) + Peer Mentor AI', risk: 'Med', timing: 'Y1-Y2', detail: 'Same buyer, expanded product. Net-new monetization for existing users.', color: '#0A0A0A' },
+  { title: 'Market Development', forge: 'Verifier API to global employers + Andela/Turing', risk: 'Med', timing: 'Y2-Y3', detail: 'Credential infra goes international. $0.05/verification × 500K/mo.', color: '#0A0A0A' },
+  { title: 'Diversification', forge: 'Recruiter SaaS Enterprise (Razorpay, Cred, Zerodha)', risk: 'High', timing: 'Y2-Y3', detail: 'New buyer (CHRO), new product (analytics + bulk hiring). ₹15L-₹1Cr contracts.', color: '#DC2626' },
+]
+
+const LOOPS = [
   {
-    cell: 'penetration',
-    title: 'Market Penetration',
-    market: 'Existing market',
-    product: 'Existing product',
-    forge: 'Replace Soon tiles for existing Redrob users',
-    detail: 'Forge ships as new tiles in the existing AI App Store. 700M-profile Redrob users see Career Path, Skill Studio, Challenges glow as NEW. Zero acquisition cost. Y1 primary growth lever.',
-    risk: 'Low',
-    timing: 'Y0-Y1',
+    title: 'Candidate Loop',
+    color: '#2563EB',
+    steps: ['Career Path\n(curiosity)', 'Skill Studio\n(activation)', 'Challenge\n(engagement)', 'Credential share\n(referral)'],
   },
   {
-    cell: 'product-dev',
-    title: 'Product Development',
-    market: 'Existing market',
-    product: 'New product',
-    forge: 'Forge premium tiers (Pro, Pro+) + Peer Mentor AI',
-    detail: 'Net-new monetization for existing Redrob users: ₹199-499 subscription tiers, Peer Mentor AI, Community room with Forge Room AI. Same buyer, expanded product.',
-    risk: 'Med',
-    timing: 'Y1-Y2',
+    title: 'Recruiter Loop',
+    color: '#DC2626',
+    steps: ['First hire\n(80% savings)', 'Posts more\nchallenges', 'Expands role\nfamilies', 'Enterprise\ncontract'],
   },
   {
-    cell: 'market-dev',
-    title: 'Market Development',
-    market: 'New market',
-    product: 'Existing product',
-    forge: 'Verifier API to global employers + Andela/Turing partnership',
-    detail: 'Take the same credential infrastructure to international employers. $0.05/verification × 500K/mo = $25M ARR. Mercor/Andela become channel partners — they verify Indian talent via our API.',
-    risk: 'Med',
-    timing: 'Y2-Y3',
-  },
-  {
-    cell: 'diversification',
-    title: 'Diversification',
-    market: 'New market',
-    product: 'New product',
-    forge: 'Forge Recruiter SaaS Enterprise (different buyer + product)',
-    detail: 'B2B enterprise SaaS for 20+ hires/year companies (Razorpay, Cred, Zerodha). New buyer persona (CHRO, not founder), new product surface (analytics + bulk hiring). ₹15L-₹1Cr annual contracts.',
-    risk: 'High',
-    timing: 'Y2-Y3',
+    title: 'AI Sharpness Loop',
+    color: '#7C3AED',
+    steps: ['Trial outcomes\nfeed AI', 'AI grading\ngets sharper', 'Recruiter trust\nincreases', 'More candidates\nverify'],
   },
 ]
 
@@ -49,79 +30,105 @@ export function Slide07() {
     <SlideWrap>
       <SlideHeader
         number="06"
-        framework="Ansoff Growth Matrix"
-        title={<>Four growth quadrants. <span className="text-[#2563EB]">Sequenced to risk.</span></>}
-        subtitle="Existing vs new market × existing vs new product. Forge starts in the safest quadrant (penetration) and expands clockwise. Hover any cell for the Forge play in that quadrant."
+        framework="Growth & Engagement Model"
+        title={<>Four quadrants. Three flywheels. <span className="text-[#2563EB]">Sequenced to risk.</span></>}
+        subtitle=""
       />
 
-      <div className="grid grid-cols-[200px_1fr_1fr] gap-3">
-        {/* Top row */}
+      {/* Compact Ansoff Matrix */}
+      <div className="grid grid-cols-[80px_1fr_1fr] gap-2 mb-6">
         <div/>
-        <ColumnLabel>Existing Product</ColumnLabel>
-        <ColumnLabel>New Product</ColumnLabel>
+        <div className="text-center text-[8px] uppercase tracking-wider font-mono text-[#A1A1AA]">Existing Product</div>
+        <div className="text-center text-[8px] uppercase tracking-wider font-mono text-[#A1A1AA]">New Product</div>
 
-        {/* Row 1: Existing market */}
-        <RowLabel>Existing<br/>Market</RowLabel>
-        <AnsoffCell data={ANSOFF[0]} colour="#2563EB"/>
-        <AnsoffCell data={ANSOFF[1]} colour="#0A0A0A"/>
+        <div className="flex items-center text-[8px] uppercase tracking-wider font-mono text-[#A1A1AA] text-right pr-2">Existing<br/>Market</div>
+        <CompactCell d={ANSOFF[0]}/>
+        <CompactCell d={ANSOFF[1]}/>
 
-        {/* Row 2: New market */}
-        <RowLabel>New<br/>Market</RowLabel>
-        <AnsoffCell data={ANSOFF[2]} colour="#0A0A0A"/>
-        <AnsoffCell data={ANSOFF[3]} colour="#DC2626"/>
+        <div className="flex items-center text-[8px] uppercase tracking-wider font-mono text-[#A1A1AA] text-right pr-2">New<br/>Market</div>
+        <CompactCell d={ANSOFF[2]}/>
+        <CompactCell d={ANSOFF[3]}/>
       </div>
 
-      <div className="mt-6 grid grid-cols-3 gap-3">
-        <Loop title="Loop 1 · Candidate" steps={['Free Career Path → curiosity', 'Skill Studio → activation', 'Challenge → engagement', 'Credential share → referral']}/>
-        <Loop title="Loop 2 · Recruiter" steps={['First hire = 80% saving', 'Posts more challenges', 'Expands role families', 'Enterprise contract']}/>
-        <Loop title="Loop 3 · AI Smartness" steps={['Each trial outcome feeds AI', 'AI gets sharper', 'Recruiter trust ↑', 'More candidates verify']}/>
+      {/* 3 Growth Loop Diagrams — visual flywheels */}
+      <div className="text-[9px] uppercase tracking-wider font-mono text-[#A1A1AA] mb-2">Growth Loop Diagrams — self-reinforcing flywheels</div>
+      <div className="grid grid-cols-3 gap-4">
+        {LOOPS.map((loop) => (
+          <LoopDiagram key={loop.title} loop={loop}/>
+        ))}
       </div>
 
       <SlideSources items={[
-        { num: '1', ref: 'Ansoff, H. I. "Strategies for Diversification" — Harvard Business Review, Sept-Oct 1957' },
-        { num: '2', ref: 'Ansoff, H. I. "Corporate Strategy" — McGraw Hill, 1965 (the canonical text)' },
-        { num: '3', ref: 'Andela, Turing, Mercor — referenced as global Verifier API channel partners (see Slide 2 sources)' },
+        { num: '1', ref: 'Ansoff, H. I. "Strategies for Diversification" — Harvard Business Review, 1957' },
+        { num: '2', ref: 'Reeves & Deimler, "Adaptive Strategy" — BCG Henderson Institute, 2011' },
       ]}/>
     </SlideWrap>
   )
 }
 
-function ColumnLabel({ children }: any) {
-  return <div className="text-center text-[10px] uppercase tracking-[0.18em] font-mono text-[#A1A1AA] py-2">{children}</div>
-}
-function RowLabel({ children }: any) {
-  return <div className="flex items-center text-[10px] uppercase tracking-[0.18em] font-mono text-[#A1A1AA] text-right pr-3">{children}</div>
-}
-
-function AnsoffCell({ data, colour }: { data: any; colour: string }) {
+function CompactCell({ d }: { d: any }) {
   return (
-    <HoverCard title={data.title} body={data.detail}>
-      <div className="rounded-2xl border p-5 cursor-help hover:shadow-md transition min-h-[180px] flex flex-col" style={{ borderColor: colour }}>
-        <div className="flex items-center justify-between mb-2">
-          <div className="text-[10px] uppercase tracking-wider font-mono" style={{ color: colour }}>{data.title}</div>
-          <span className="text-[10px] font-mono uppercase tracking-wider px-2 py-0.5 rounded-full" style={{ background: colour + '15', color: colour }}>Risk: {data.risk}</span>
+    <HoverCard title={d.title} body={d.detail}>
+      <div className="rounded-xl border p-3 cursor-help hover:shadow-sm transition" style={{ borderColor: d.color }}>
+        <div className="flex items-center justify-between mb-1">
+          <div className="text-[8px] uppercase tracking-wider font-mono" style={{ color: d.color }}>{d.title}</div>
+          <span className="text-[7px] font-mono uppercase px-1.5 py-0.5 rounded-full" style={{ background: d.color + '15', color: d.color }}>Risk: {d.risk}</span>
         </div>
-        <div className="font-semibold text-base text-[#0A0A0A] mb-2">{data.forge}</div>
-        <div className="text-xs text-[#525252] leading-relaxed flex-1">{data.detail.slice(0, 110)}…</div>
-        <div className="text-[10px] font-mono text-[#A1A1AA] mt-3">Timing · {data.timing}</div>
+        <div className="font-semibold text-[11px] text-[#0A0A0A] mb-1">{d.forge}</div>
+        <div className="text-[9px] text-[#A1A1AA] font-mono">Timing · {d.timing}</div>
       </div>
     </HoverCard>
   )
 }
 
-function Loop({ title, steps }: any) {
+function LoopDiagram({ loop }: { loop: typeof LOOPS[0] }) {
+  const r = 80
+  const cx = 100
+  const cy = 95
+  const n = loop.steps.length
+
   return (
-    <div className="rounded-xl border border-[#E5E7EB] p-4">
-      <div className="text-[10px] uppercase tracking-wider font-mono text-[#2563EB] mb-3">{title}</div>
-      <div className="space-y-1.5">
-        {steps.map((s: string, i: number) => (
-          <div key={i} className="flex gap-2 text-xs items-start">
-            <span className="text-[#A1A1AA] font-mono">{i + 1}</span>
-            <span className="text-[#0A0A0A]">{s}</span>
-          </div>
-        ))}
-        <div className="text-[10px] text-[#A1A1AA] font-mono mt-3">↻ self-reinforcing</div>
-      </div>
+    <div className="rounded-xl border border-[#E5E7EB] p-3">
+      <div className="text-[10px] uppercase tracking-wider font-mono font-bold text-center mb-1" style={{ color: loop.color }}>{loop.title}</div>
+      <svg viewBox="0 0 200 190" className="w-full">
+        {/* Circular arrow path */}
+        <circle cx={cx} cy={cy} r={r - 15} fill="none" stroke={loop.color} strokeWidth="1.5" strokeDasharray="4 3" opacity="0.3"/>
+
+        {/* Center label */}
+        <text x={cx} y={cy - 4} textAnchor="middle" fill={loop.color} fontSize="7" fontWeight="bold" fontFamily="monospace">SELF</text>
+        <text x={cx} y={cy + 5} textAnchor="middle" fill={loop.color} fontSize="7" fontWeight="bold" fontFamily="monospace">REINFORCING</text>
+        <text x={cx} y={cy + 14} textAnchor="middle" fill={loop.color} fontSize="10">↻</text>
+
+        {/* 4 nodes around the circle */}
+        {loop.steps.map((step, i) => {
+          const angle = (i * 360 / n - 90) * (Math.PI / 180)
+          const x = cx + r * Math.cos(angle)
+          const y = cy + r * Math.sin(angle)
+          const lines = step.split('\n')
+
+          // Arrow to next node
+          const nextAngle = ((i + 1) * 360 / n - 90) * (Math.PI / 180)
+          const midAngle = (angle + nextAngle) / 2 + (i === n - 1 ? Math.PI : 0)
+          const ax = cx + (r - 15) * Math.cos(angle + 0.3)
+          const ay = cy + (r - 15) * Math.sin(angle + 0.3)
+
+          return (
+            <g key={i}>
+              {/* Node circle */}
+              <circle cx={x} cy={y} r={22} fill="white" stroke={loop.color} strokeWidth="2"/>
+              <text x={x} y={y - 4} textAnchor="middle" fill="#0A0A0A" fontSize="6.5" fontWeight="bold">{lines[0]}</text>
+              {lines[1] && <text x={x} y={y + 5} textAnchor="middle" fill="#A1A1AA" fontSize="5.5">{lines[1]}</text>}
+
+              {/* Step number */}
+              <circle cx={x + 15} cy={y - 15} r={6} fill={loop.color}/>
+              <text x={x + 15} y={y - 12} textAnchor="middle" fill="white" fontSize="6" fontWeight="bold">{i + 1}</text>
+
+              {/* Arrow along the dashed circle */}
+              <text x={ax} y={ay} textAnchor="middle" fill={loop.color} fontSize="8">›</text>
+            </g>
+          )
+        })}
+      </svg>
     </div>
   )
 }
