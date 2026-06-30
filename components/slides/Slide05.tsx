@@ -1,52 +1,43 @@
-import { SlideWrap, SlideHeader, HoverCard, SlideSources } from '../PresentationDeck'
+import { SlideWrap, SlideHeader, SlideSources } from '../PresentationDeck'
+import { Search, UserPlus, Target, Trophy, ArrowRight } from 'lucide-react'
 
-const JOURNEY_STAGES = [
+const STAGES = [
   {
     stage: 'Discover',
-    before: 'Finds Redrob via job search. Browses listings. Leaves.',
-    after: 'Finds Career Path tile → pastes resume → gets 3 role routes in 30 sec. No login.',
-    forge: 'Career Path (free)',
+    icon: Search,
     color: '#2563EB',
+    before: 'Finds Redrob via university placement cell. Browses jobs. Leaves.',
+    after: 'Sees Forge tiles in AI App Store → tries Career Path → gets 3 role routes in seconds. No login.',
+    intervention: 'Career Path (free)',
+    improves: 'From passive browsing → instant personalised career direction',
   },
   {
     stage: 'Onboard',
-    before: 'Creates account. Uploads resume. Waits for recruiter to find them.',
-    after: '"Save your path" → signup → takes first Skill Studio task → earns W3C credential in 20 min.',
-    forge: 'Skill Studio + Credential Wallet',
+    icon: UserPlus,
     color: '#1E40AF',
+    before: 'Creates account. Uploads resume. Waits to be found.',
+    after: '"Save your path" → signup → takes Skill Studio task → earns W3C credential.',
+    intervention: 'Skill Studio + Wallet',
+    improves: 'From waiting → proving skill in 20 min with a portable credential',
   },
   {
     stage: 'Engage',
-    before: 'Applies to jobs. Gets lost in 800-applicant pile. No feedback.',
-    after: 'Credentialed → sees closed Challenges → submits real work → AI Defence Interview → ranked top 5.',
-    forge: 'Challenges + Defence Interview',
+    icon: Target,
     color: '#7C3AED',
+    before: 'Applies to jobs. Lost in 800-applicant pile. No feedback.',
+    after: 'Credentialed → sees closed Challenges → submits real work → AI Defence Interview → ranked.',
+    intervention: 'Challenges + Defence',
+    improves: 'From black-box applications → skill-gated, ranked pipeline',
   },
   {
     stage: 'Value',
-    before: 'Maybe gets an interview after weeks. No skill signal sent.',
-    after: '2-week paid trial (₹25K stipend) → hired in 4 months. Credential shared on LinkedIn → referral loop.',
-    forge: 'Paid Trial + Leaderboard',
+    icon: Trophy,
     color: '#DC2626',
+    before: 'Maybe gets interview after weeks. No skill signal sent.',
+    after: 'Paid trial (₹25K stipend) → hired. Credential shared on LinkedIn → referral loop.',
+    intervention: 'Paid Trial + Leaderboard',
+    improves: 'From hope → verifiable outcome + viral referral',
   },
-]
-
-const CANDIDATE_FUNNEL = [
-  { name: 'Career Path (free)', count: '5M', pct: '100%' },
-  { name: 'Signup (save path)', count: '900K', pct: '18%' },
-  { name: 'First credential', count: '315K', pct: '35%' },
-  { name: 'Challenge applied', count: '126K', pct: '40%' },
-  { name: 'Paid trial', count: '15K', pct: '12%' },
-  { name: 'Hired + referral', count: '7.5K', pct: '50%' },
-]
-
-const RECRUITER_FUNNEL = [
-  { name: 'Founder outreach', count: '8,000', pct: '100%' },
-  { name: 'Free challenge post', count: '960', pct: '12%' },
-  { name: 'First challenge live', count: '624', pct: '65%' },
-  { name: 'Trial (top 2)', count: '437', pct: '70%' },
-  { name: 'Hire (₹49,999)', count: '284', pct: '65%' },
-  { name: 'Repeat (2+ posts)', count: '227', pct: '80%' },
 ]
 
 export function Slide05() {
@@ -59,95 +50,92 @@ export function Slide05() {
         subtitle=""
       />
 
-      {/* Journey Map — mandatory visual */}
-      <div className="grid grid-cols-4 gap-0 mb-6">
-        {JOURNEY_STAGES.map((s, i) => (
+      {/* Journey Map — visual flow */}
+      <div className="grid grid-cols-4 gap-0 mb-5">
+        {STAGES.map((s, i) => (
           <div key={s.stage} className="relative">
-            {/* Stage header */}
-            <div className="text-center py-2 text-white text-xs font-bold uppercase tracking-wider" style={{ background: s.color }}>
+            {/* Stage header with icon */}
+            <div className="flex items-center justify-center gap-2 py-2.5 text-white text-xs font-bold uppercase tracking-wider" style={{ background: s.color }}>
+              <s.icon size={14}/>
               {s.stage}
             </div>
 
-            <div className="border border-t-0 border-[#E5E7EB] p-3 h-full flex flex-col gap-2">
+            <div className="border border-t-0 border-[#E5E7EB] p-3 h-full flex flex-col gap-3">
               {/* Before */}
               <div>
-                <div className="text-[8px] uppercase tracking-wider font-mono text-[#DC2626] font-bold mb-0.5">Before Forge</div>
-                <div className="text-[10px] text-[#A1A1AA] leading-snug line-through decoration-[#DC2626]/40">{s.before}</div>
+                <div className="text-[8px] uppercase tracking-wider font-mono text-[#DC2626] font-bold mb-1">Before Forge</div>
+                <div className="text-[10px] text-[#A1A1AA] leading-snug line-through decoration-[#DC2626]/30">{s.before}</div>
               </div>
 
               {/* After */}
               <div>
-                <div className="text-[8px] uppercase tracking-wider font-mono text-[#22C55E] font-bold mb-0.5">With Forge</div>
+                <div className="text-[8px] uppercase tracking-wider font-mono text-[#22C55E] font-bold mb-1">With Forge</div>
                 <div className="text-[10px] text-[#0A0A0A] leading-snug font-medium">{s.after}</div>
               </div>
 
-              {/* Intervention */}
-              <div className="mt-auto pt-2 border-t border-[#E5E7EB]">
-                <div className="text-[9px] font-mono font-bold" style={{ color: s.color }}>{s.forge}</div>
+              {/* Intervention point */}
+              <div className="mt-auto">
+                <div className="text-[8px] uppercase tracking-wider font-mono text-[#A1A1AA] mb-1">Forge intervention</div>
+                <div className="text-[10px] font-bold rounded-md px-2 py-1 text-center text-white" style={{ background: s.color }}>{s.intervention}</div>
               </div>
             </div>
 
             {/* Arrow between stages */}
             {i < 3 && (
-              <div className="absolute top-[14px] -right-2 z-10 text-[#A1A1AA] text-sm">→</div>
+              <div className="absolute top-[18px] -right-[9px] z-10 text-white">
+                <ArrowRight size={14}/>
+              </div>
             )}
           </div>
         ))}
       </div>
 
-      {/* Two funnels — compact */}
-      <div className="grid grid-cols-2 gap-6 mb-4">
-        <CompactFunnel title="Candidate AARRR" color="#2563EB" stages={CANDIDATE_FUNNEL}/>
-        <CompactFunnel title="Recruiter funnel" color="#DC2626" stages={RECRUITER_FUNNEL}/>
+      {/* How does the experience improve — icon row */}
+      <div className="text-[9px] uppercase tracking-wider font-mono text-[#A1A1AA] mb-2">How the experience improves at each stage</div>
+      <div className="grid grid-cols-4 gap-3 mb-4">
+        {STAGES.map((s) => (
+          <div key={s.stage} className="rounded-lg border border-[#E5E7EB] p-3 text-center">
+            <div className="w-8 h-8 rounded-full mx-auto flex items-center justify-center mb-2" style={{ background: s.color + '15' }}>
+              <s.icon size={16} style={{ color: s.color }}/>
+            </div>
+            <div className="text-[10px] text-[#0A0A0A] font-medium leading-snug">{s.improves}</div>
+          </div>
+        ))}
       </div>
 
-      {/* Key metrics */}
-      <div className="grid grid-cols-4 gap-3">
-        <Metric value="30 sec" label="Time to first value" />
-        <Metric value="20 min" label="Time to first credential" />
-        <Metric value="28 days" label="Recruiter time-to-hire" />
-        <Metric value="₹1L" label="Cost-per-hire vs ₹5L agency" />
+      {/* Where intervention occurs — visual */}
+      <div className="rounded-xl bg-[#0A0A0A] text-white p-4">
+        <div className="text-[9px] uppercase tracking-wider font-mono text-[#2563EB] mb-2">Where Forge sits inside Redrob</div>
+        <div className="flex items-center justify-between gap-2">
+          <FlowStep label="Redrob App" sub="Existing platform" color="#A1A1AA"/>
+          <Arrow/>
+          <FlowStep label="AI App Store" sub="Existing nav" color="#A1A1AA"/>
+          <Arrow/>
+          <FlowStep label="Forge Tiles" sub="NEW — 8 tiles" color="#2563EB" highlight/>
+          <Arrow/>
+          <FlowStep label="Skill Journey" sub="Studio → Defence → Credential" color="#2563EB" highlight/>
+          <Arrow/>
+          <FlowStep label="Challenge" sub="Real work → Paid trial → Hired" color="#DC2626" highlight/>
+        </div>
       </div>
 
       <SlideSources items={[
-        { num: '1', ref: 'McClure, D. "AARRR Pirate Metrics" — 500 Startups, 2007' },
-        { num: '2', ref: 'OpenView Partners, "SaaS Activation Benchmarks 2024"' },
-        { num: '3', ref: 'NASSCOM, "Tech Hiring Pulse 2024" — time-to-hire baseline' },
+        { num: '1', ref: 'Redrob acquires users via 500+ university skill-testing partnerships (CIOL, 2025)' },
+        { num: '2', ref: 'Redrob.ai consumer platform launched June 2026 (IT Voice, Analytics Insight)' },
       ]}/>
     </SlideWrap>
   )
 }
 
-function CompactFunnel({ title, color, stages }: { title: string; color: string; stages: any[] }) {
+function FlowStep({ label, sub, color, highlight }: { label: string; sub: string; color: string; highlight?: boolean }) {
   return (
-    <div>
-      <div className="text-[10px] uppercase tracking-[0.18em] font-mono mb-2" style={{ color }}>{title}</div>
-      <div className="space-y-0.5">
-        {stages.map((s, i) => {
-          const width = 100 - (i * 12)
-          return (
-            <div key={s.name} className="flex items-center gap-2">
-              <div className="w-12 text-right text-[9px] font-mono text-[#A1A1AA]">{s.count}</div>
-              <div className="flex-1">
-                <div className="rounded py-1.5 px-3 text-white text-[10px] font-medium"
-                     style={{ background: color, width: `${width}%`, margin: '0 auto', textAlign: 'center', opacity: 1 - (i * 0.1) }}>
-                  {s.name}
-                </div>
-              </div>
-              <div className="w-8 text-[9px] font-mono" style={{ color }}>{s.pct}</div>
-            </div>
-          )
-        })}
-      </div>
+    <div className={`rounded-lg px-3 py-2 text-center ${highlight ? 'border border-[#2563EB]' : 'border border-[#333]'}`}>
+      <div className="text-[10px] font-bold" style={{ color: highlight ? color : '#fff' }}>{label}</div>
+      <div className="text-[7px] text-[#A1A1AA] mt-0.5">{sub}</div>
     </div>
   )
 }
 
-function Metric({ value, label }: { value: string; label: string }) {
-  return (
-    <div className="rounded-lg border border-[#E5E7EB] p-3 text-center">
-      <div className="font-bold text-lg text-[#0A0A0A]">{value}</div>
-      <div className="text-[9px] text-[#A1A1AA] font-mono uppercase tracking-wider mt-1">{label}</div>
-    </div>
-  )
+function Arrow() {
+  return <div className="text-[#A1A1AA] text-xs shrink-0">→</div>
 }
