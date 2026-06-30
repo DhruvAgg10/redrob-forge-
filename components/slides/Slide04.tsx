@@ -1,34 +1,75 @@
-import { SlideWrap, SlideHeader, HoverCard } from '../PresentationDeck'
+import { SlideWrap, SlideHeader, SlideSources } from '../PresentationDeck'
 import { Hammer, FileText, BarChart3, Code2, Compass, Video, MessageSquare, Wallet } from 'lucide-react'
 
-// Use-case prioritization 2x2: Value (Y) × Scale (X)
 type Tile = {
   icon: any
   name: string
-  replaces: string
-  desc: string
-  value: number   // 0-100 (y-axis)
-  scale: number   // 0-100 (x-axis)
-  detail: string
+  tagline: string
+  what: string
+  differentiator: string
+  journey: string
+  tier: 'Free' | 'Freemium' | 'Pro' | 'Paid'
+  tierColor: string
+  highlight?: boolean
 }
 
 const TILES: Tile[] = [
-  { icon: Compass, name: 'Career Path', replaces: '(new layer)', desc: 'Paste resume → 3 distinct routes', value: 90, scale: 92,
-    detail: 'No-login top-of-funnel. AI-generated. The highest-leverage acquisition surface. Free Career Path is the hook that converts to signups, then to Skill Studio.' },
-  { icon: Hammer, name: 'Skill Studio', replaces: 'Skill Tests (Soon)', desc: 'MBA tasks, AI-graded, mints W3C cred', value: 88, scale: 78,
-    detail: 'Activation moment. Mint a credential within 20 min of signup. Replaces gameable MCQs with open-ended writing graded by LLM-as-judge.' },
-  { icon: Code2, name: 'Challenges', replaces: 'Redrob Code (Soon)', desc: 'Real company sprints + paid trial', value: 95, scale: 65,
-    detail: 'Where Forge monetizes the recruiter side. Each posted challenge brings new recruiters into the funnel. Each successful hire pays ₹49,999.' },
-  { icon: FileText, name: 'ATS Resume Scanner', replaces: 'Resume Builder (Soon)', desc: 'Score vs JD with AI fixes', value: 70, scale: 88,
-    detail: 'Lightweight, high-volume utility. Brings users in who aren\'t ready for Skill Studio yet. Top of funnel for ₹199 Pro upsell.' },
-  { icon: Wallet, name: 'Credential Wallet', replaces: '(new layer)', desc: 'W3C VC portable proof', value: 82, scale: 75,
-    detail: 'Retention engine. Every credential earned lives here permanently. Shareable verifier link drives LinkedIn virality.' },
-  { icon: Video, name: 'Defence Interview', replaces: 'Interview Coach (Soon)', desc: 'AI defence after submission', value: 75, scale: 55,
-    detail: 'Quality moat. Differentiates Forge from any MCQ-based competitor. Real conversation, real probing, real score. Recruiter trust builder.' },
-  { icon: MessageSquare, name: 'Market Pulse', replaces: 'Market Pulse (Soon)', desc: 'NL queries on hiring graph', value: 55, scale: 35,
-    detail: 'B2B value. Enterprise recruiters use it for strategic hiring decisions. Lower scale but high willingness-to-pay in enterprise tier.' },
-  { icon: BarChart3, name: 'Skills Leaderboard', replaces: 'Leaderboard (Soon)', desc: 'Rank by verified skill + Peer Mentor AI', value: 50, scale: 70,
-    detail: 'Engagement amplifier. Peer Mentor AI personas of top candidates is a Day-1 wow moment. Status loop for status-conscious segment.' },
+  {
+    icon: Compass, name: 'Career Path', tagline: 'Discovery & direction',
+    what: 'Paste resume → see 3 role-transition routes with salary bands, skill gaps, and timelines. No login required.',
+    differentiator: 'Table-stakes hook. Not a differentiator — it\'s the free top-of-funnel that converts users into the paid ecosystem.',
+    journey: 'Acquisition → first value in 30 seconds → drives signup for Skill Studio.',
+    tier: 'Free', tierColor: '#22C55E',
+  },
+  {
+    icon: Hammer, name: 'Skill Studio', tagline: 'Prove, don\'t claim',
+    what: 'MBA-style open-ended tasks (PRD writing, market sizing, positioning). AI-graded by LLM-as-judge. Mints a W3C Verifiable Credential on pass.',
+    differentiator: 'No platform in India issues W3C-compliant skill credentials. Replaces gameable MCQs with real work assessment.',
+    journey: 'Activation → credential minted within 20 min of signup → stored in Wallet → visible to recruiters.',
+    tier: 'Pro', tierColor: '#2563EB', highlight: true,
+  },
+  {
+    icon: Code2, name: 'Challenges', tagline: 'Real work, real companies',
+    what: 'Companies post real business problems as closed sprints. Credentialed candidates compete. Top performers get a 2-week paid trial before full-time offer.',
+    differentiator: 'Replaces the agency model entirely. Candidates prove on real work, not interviews. Companies pay ₹49,999 per hire vs ₹4-6L agency fee.',
+    journey: 'Revenue → recruiter-side monetization. Each posted challenge = new recruiter in the funnel.',
+    tier: 'Paid', tierColor: '#DC2626', highlight: true,
+  },
+  {
+    icon: FileText, name: 'ATS Resume Scanner', tagline: 'Beat the keyword filter',
+    what: 'Paste JD + resume → AI scores keyword match, suggests rewrites, and flags missing skills. Build your resume to pass ATS filters.',
+    differentiator: 'Utility play — not unique, but high-volume. Gateway drug to Pro tier.',
+    journey: 'Acquisition → brings users who aren\'t ready for Skill Studio yet. Free scans → Pro upsell.',
+    tier: 'Freemium', tierColor: '#F59E0B',
+  },
+  {
+    icon: Wallet, name: 'Credential Wallet', tagline: 'Portable proof',
+    what: 'All earned credentials stored as W3C Verifiable Credentials. One-click shareable verification link. Works like a digital diploma locker.',
+    differentiator: 'This layer doesn\'t exist anywhere in India. Portable across platforms — not locked inside Redrob.',
+    journey: 'Retention → every credential earned lives here permanently. Shareable link drives LinkedIn virality.',
+    tier: 'Pro', tierColor: '#2563EB', highlight: true,
+  },
+  {
+    icon: Video, name: 'Defence Interview', tagline: 'AI stress-tests your submission',
+    what: 'After completing a Skill Studio task or Challenge submission, an AI conducts a live viva — probing your reasoning, testing edge cases, scoring your ability to defend decisions under pressure. Full transcript + score saved.',
+    differentiator: 'No competitor does post-submission defence. Proves the candidate actually did the work (anti-cheating) + builds recruiter trust in the credential.',
+    journey: 'Trust → quality moat. Recruiters trust Forge credentials because they\'re defended, not just submitted.',
+    tier: 'Pro', tierColor: '#2563EB',
+  },
+  {
+    icon: BarChart3, name: 'Skills Leaderboard', tagline: 'Rank + learn from the best',
+    what: 'Ranked board by verified skill scores. But the real USP: AI Peer Mentor trained on top-ranked candidates\' approaches. Learn how the #1 person solved the same task.',
+    differentiator: 'AI Peer Mentor is a Redrob USP — no one else lets you learn from an AI trained on the top performer\'s actual work.',
+    journey: 'Engagement → status loop for competitive users + learning loop for aspirational users.',
+    tier: 'Free', tierColor: '#22C55E',
+  },
+  {
+    icon: MessageSquare, name: 'Market Pulse', tagline: 'What\'s happening in hiring',
+    what: 'Natural language queries on Redrob\'s hiring graph. "What\'s the avg salary for PM in Bangalore?" → instant answer with trends.',
+    differentiator: 'Context layer — helps users make informed career decisions. Keeps them coming back.',
+    journey: 'Engagement → free utility that builds daily habit. No direct revenue but high retention value.',
+    tier: 'Free', tierColor: '#22C55E',
+  },
 ]
 
 export function Slide04() {
@@ -36,102 +77,83 @@ export function Slide04() {
     <SlideWrap>
       <SlideHeader
         number="03"
-        framework="Use-Case Prioritization (Value × Scale)"
-        title={<>8 working tiles inside Redrob today. <span className="text-[#2563EB]">Mapped to value × scale.</span></>}
-        subtitle="Forge isn't a new product — it's Redrob's roadmap shipped. Each tile plotted by business value (Y) vs user-scale potential (X). Top-right = ship first. Hover any tile for details."
+        framework="Proposed Solution"
+        title={<>8 tiles. One ecosystem. <span className="text-[#2563EB]">Forge ships Redrob&apos;s roadmap.</span></>}
+        subtitle="What is the solution? Why is it differentiated? Which user journey does it improve?"
       />
 
-      <div className="grid lg:grid-cols-5 gap-6">
-        {/* Use-case 2x2 matrix */}
-        <div className="lg:col-span-3 relative rounded-2xl border border-[#E5E7EB] bg-[#FAFAFA] aspect-square p-6 min-h-[500px]">
-          {/* Axis labels */}
-          <div className="absolute top-3 left-1/2 -translate-x-1/2 text-[10px] uppercase tracking-wider font-mono text-[#A1A1AA]">↑ HIGH BUSINESS VALUE</div>
-          <div className="absolute bottom-3 left-1/2 -translate-x-1/2 text-[10px] uppercase tracking-wider font-mono text-[#A1A1AA]">↓ Low value</div>
-          <div className="absolute top-1/2 right-3 -translate-y-1/2 text-[10px] uppercase tracking-wider font-mono text-[#A1A1AA] rotate-90 origin-center">HIGH USER SCALE →</div>
-          <div className="absolute top-1/2 left-3 -translate-y-1/2 text-[10px] uppercase tracking-wider font-mono text-[#A1A1AA] -rotate-90 origin-center">← Niche</div>
-
-          {/* Crosshair */}
-          <div className="absolute left-1/2 top-8 bottom-8 w-px bg-[#E5E7EB]"/>
-          <div className="absolute top-1/2 left-8 right-8 h-px bg-[#E5E7EB]"/>
-
-          {/* Quadrant labels */}
-          <div className="absolute top-12 left-12 text-[9px] uppercase tracking-wider font-mono text-[#A1A1AA]">Niche · High value</div>
-          <div className="absolute top-12 right-12 text-[9px] uppercase tracking-wider font-mono text-[#2563EB] font-semibold">SHIP FIRST · High value · Scale</div>
-          <div className="absolute bottom-12 left-12 text-[9px] uppercase tracking-wider font-mono text-[#A1A1AA]">Deprioritize</div>
-          <div className="absolute bottom-12 right-12 text-[9px] uppercase tracking-wider font-mono text-[#A1A1AA]">High volume · Lower value</div>
-
-          {/* Tile bubbles */}
-          {TILES.map((t) => <TileBubble key={t.name} t={t}/>)}
-        </div>
-
-        {/* Tile list */}
-        <div className="lg:col-span-2 space-y-2 max-h-[500px] overflow-auto pr-1">
-          <div className="text-[10px] uppercase tracking-[0.18em] font-mono text-[#A1A1AA] mb-2">All 8 tiles — hover for full details</div>
-          {TILES.slice().sort((a, b) => (b.value + b.scale) - (a.value + a.scale)).map((t) => (
-            <TileListRow key={t.name} t={t}/>
-          ))}
-        </div>
+      {/* Answer the 3 questions upfront */}
+      <div className="grid grid-cols-3 gap-3 mb-6">
+        <AnswerBox
+          question="What is the proposed solution?"
+          answer="An 8-tile skill-verification ecosystem built inside Redrob. Candidates prove skills through real tasks → earn W3C credentials → get matched to company challenges → hired via paid trial. No agency needed."
+          color="#2563EB"
+        />
+        <AnswerBox
+          question="Why is it differentiated?"
+          answer="Three things no competitor has: (1) W3C credential issuance in India, (2) AI Defence Interview that proves authorship, (3) AI Peer Mentor trained on top performers' actual work — Redrob's core USP."
+          color="#DC2626"
+        />
+        <AnswerBox
+          question="Which journey does it improve?"
+          answer="Candidate: discovery → proof → hire (4 months vs 18). Recruiter: post → pre-filtered pipeline → paid trial → hire at ₹1L vs ₹5L. Both sides stay on Redrob instead of leaking to agencies."
+          color="#0A0A0A"
+        />
       </div>
 
-      <div className="mt-6 grid grid-cols-3 gap-3">
-        <Insight number="01" label="Top right priority" body="Career Path + Skill Studio. High value + high scale. They're the activation funnel."/>
-        <Insight number="02" label="High value niche" body="Challenges + Defence Interview. Smaller user base but biggest revenue per user. Ship for recruiters."/>
-        <Insight number="03" label="Scale plays" body="ATS Scanner + Skills Leaderboard. High volume utilities. Top of funnel for Pro upsell."/>
+      {/* 8 tiles as cards */}
+      <div className="grid grid-cols-4 gap-3">
+        {TILES.map((t) => (
+          <TileCard key={t.name} t={t}/>
+        ))}
       </div>
+
+      <SlideSources items={[
+        { num: '1', ref: 'W3C, "Verifiable Credentials Data Model v2.0" — w3.org/TR/vc-data-model-2.0' },
+        { num: '2', ref: 'Zheng et al., "Judging LLM-as-a-Judge," NeurIPS 2023 — arxiv.org/abs/2306.05685' },
+        { num: '3', ref: 'Park et al., "Generative Agents," Stanford/Google, UIST 2023 — arxiv.org/abs/2304.03442' },
+      ]}/>
     </SlideWrap>
   )
 }
 
-function TileBubble({ t }: { t: Tile }) {
-  const x = t.scale
-  const y = 100 - t.value
-  const isTopRight = t.value > 75 && t.scale > 60
-  const labelLeft = x > 70
+function AnswerBox({ question, answer, color }: { question: string; answer: string; color: string }) {
   return (
-    <div className="absolute" style={{ left: `${x}%`, top: `${y}%`, transform: 'translate(-50%, -50%)' }}>
-      <HoverCard title={t.name + ' · Replaces ' + t.replaces} body={t.detail}>
-        <div className={`rounded-full flex items-center justify-center cursor-help shadow-md transition-all hover:scale-110 relative ${isTopRight ? 'bg-[#2563EB] text-white' : 'bg-white text-[#0A0A0A] border-2 border-[#0A0A0A]'}`}
-             style={{ width: 56, height: 56 }}>
-          <t.icon size={20}/>
-        </div>
-      </HoverCard>
-      <div className={`absolute top-1/2 -translate-y-1/2 text-[10px] text-[#0A0A0A] font-semibold whitespace-nowrap ${labelLeft ? 'right-full mr-2 text-right' : 'left-full ml-2'}`}>
-        {t.name}
-      </div>
+    <div className="rounded-xl border-2 p-4" style={{ borderColor: color }}>
+      <div className="text-[9px] uppercase tracking-wider font-mono font-bold mb-2" style={{ color }}>{question}</div>
+      <div className="text-[11px] text-[#0A0A0A] leading-relaxed">{answer}</div>
     </div>
   )
 }
 
-function TileListRow({ t }: { t: Tile }) {
-  const isTopRight = t.value > 75 && t.scale > 60
+function TileCard({ t }: { t: Tile }) {
   return (
-    <HoverCard title={t.name} body={t.detail}>
-      <div className={`flex items-start gap-3 rounded-xl p-3 cursor-help transition ${isTopRight ? 'bg-[#2563EB]/5 border border-[#2563EB]/30' : 'border border-[#E5E7EB] hover:bg-[#FAFAFA]'}`}>
-        <div className={`w-9 h-9 rounded-lg flex items-center justify-center shrink-0 ${isTopRight ? 'bg-[#2563EB] text-white' : 'bg-[#F4F4F5] text-[#0A0A0A]'}`}>
+    <div className={`rounded-xl border p-4 flex flex-col ${t.highlight ? 'border-[#2563EB] bg-[#2563EB]/[0.03]' : 'border-[#E5E7EB]'}`}>
+      {/* Header */}
+      <div className="flex items-center gap-2 mb-2">
+        <div className={`w-8 h-8 rounded-lg flex items-center justify-center shrink-0 ${t.highlight ? 'bg-[#2563EB] text-white' : 'bg-[#F4F4F5] text-[#0A0A0A]'}`}>
           <t.icon size={16}/>
         </div>
-        <div className="min-w-0 flex-1">
-          <div className="flex items-center gap-1.5">
-            <div className="font-semibold text-sm">{t.name}</div>
-            <span className="text-[9px] font-mono uppercase tracking-wider text-[#A1A1AA] px-1.5 py-0.5 rounded bg-[#F4F4F5]">NEW</span>
-          </div>
-          <div className="text-[11px] text-[#525252] mt-0.5">{t.desc}</div>
-          <div className="text-[10px] text-[#A1A1AA] mt-1 font-mono">Replaces · {t.replaces}</div>
+        <div>
+          <div className="font-semibold text-xs">{t.name}</div>
+          <div className="text-[9px] text-[#A1A1AA]">{t.tagline}</div>
         </div>
-        <div className="text-right shrink-0">
-          <div className="text-[9px] font-mono text-[#A1A1AA]">V {t.value}</div>
-          <div className="text-[9px] font-mono text-[#A1A1AA]">S {t.scale}</div>
-        </div>
+        <span className="ml-auto text-[8px] font-mono font-bold px-1.5 py-0.5 rounded-full" style={{ color: t.tierColor, background: t.tierColor + '15' }}>{t.tier}</span>
       </div>
-    </HoverCard>
-  )
-}
 
-function Insight({ number, label, body }: any) {
-  return (
-    <div className="rounded-xl border border-[#E5E7EB] p-4">
-      <div className="text-[10px] font-mono text-[#2563EB] uppercase tracking-wider">{number} · {label}</div>
-      <p className="text-sm text-[#0A0A0A] mt-2 leading-relaxed">{body}</p>
+      {/* What */}
+      <div className="text-[9px] uppercase tracking-wider font-mono text-[#A1A1AA] mb-1">What it does</div>
+      <div className="text-[10px] text-[#525252] leading-snug mb-2">{t.what}</div>
+
+      {/* Differentiator */}
+      <div className="text-[9px] uppercase tracking-wider font-mono text-[#DC2626] mb-1">Why it&apos;s different</div>
+      <div className="text-[10px] text-[#525252] leading-snug mb-2">{t.differentiator}</div>
+
+      {/* Journey */}
+      <div className="mt-auto pt-2 border-t border-[#E5E7EB]">
+        <div className="text-[9px] uppercase tracking-wider font-mono text-[#2563EB] mb-1">Journey impact</div>
+        <div className="text-[10px] text-[#0A0A0A] leading-snug font-medium">{t.journey}</div>
+      </div>
     </div>
   )
 }
