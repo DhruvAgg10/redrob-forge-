@@ -7,16 +7,27 @@ export function Slide02() {
         number="01"
         framework="The Intent-to-Action Gap"
         title={<><span className="text-[#DC2626]">53% want skills-first.</span> Only <span className="text-[#0A0A0A]">1 in 700</span> hires changes.</>}
-        subtitle="Indian employers say one thing and do another — because the verification infrastructure to act on intent doesn't exist yet."
+        subtitle=""
       />
 
+      {/* Hero — Redrob's specific problem */}
+      <div className="rounded-2xl bg-[#0A0A0A] text-white p-6 mb-6">
+        <p className="text-sm leading-relaxed">
+          Redrob has <span className="font-semibold text-[#2563EB]">700M+ profiles</span> and both sides of the marketplace — but <span className="font-semibold text-[#DC2626]">no skill-verification primitive</span>.
+          Recruiters can&apos;t trust the signal → fall back on agencies → Redrob loses the hire and the revenue.
+        </p>
+        <p className="text-sm leading-relaxed mt-3 font-semibold text-[#2563EB]">
+          Forge is the missing verification layer that turns Redrob from a listing platform into a credentialing marketplace.
+        </p>
+      </div>
+
       {/* The Gap Visual */}
-      <div className="rounded-2xl border border-[#E5E7EB] bg-[#FAFAFA] p-10 mb-6">
+      <div className="rounded-2xl border border-[#E5E7EB] bg-[#FAFAFA] p-8 mb-6">
         <div className="grid grid-cols-3 gap-8 items-center">
           <div className="text-center">
             <div className="text-[10px] uppercase tracking-[0.2em] font-mono text-[#2563EB] mb-3">Intent</div>
             <div className="font-semibold text-5xl text-[#0A0A0A]">53%</div>
-            <div className="text-xs text-[#525252] mt-2">of employers dropped degree requirements in 2025 (Burning Glass)</div>
+            <div className="text-xs text-[#525252] mt-2">of employers dropped degree requirements (Burning Glass, 2024)</div>
           </div>
 
           <div className="relative">
@@ -31,47 +42,35 @@ export function Slide02() {
           <div className="text-center">
             <div className="text-[10px] uppercase tracking-[0.2em] font-mono text-[#DC2626] mb-3">Action</div>
             <div className="font-semibold text-5xl text-[#0A0A0A]">0.14%</div>
-            <div className="text-xs text-[#525252] mt-2">of hires actually changed (Harvard Business School 2024)</div>
+            <div className="text-xs text-[#525252] mt-2">of hires actually changed (Harvard Business School, 2023)</div>
           </div>
         </div>
       </div>
 
       <div className="grid grid-cols-4 gap-3 mb-6">
-        <StatCard value="₹4-6L" label="Cost per Tier-1 hire" hint="Agency markup"/>
-        <StatCard value="31 days" label="Median time-to-hire" hint="In skilled white-collar India"/>
-        <StatCard value="12%" label="LinkedIn InMail open" hint="What recruiters get from outbound"/>
-        <StatCard value="0" label="Indian credential standards" hint="No W3C-compliant issuer exists today"/>
+        <StatCard value="₹4-6L" label="Cost per Tier-1 hire" hint="NASSCOM, 2024"/>
+        <StatCard value="31 days" label="Median time-to-hire" hint="SHRM, 2024"/>
+        <StatCard value="0" label="W3C skill issuers in India" hint="No compliant credential issuer exists"/>
+        <StatCard value="0%" label="Forge markup" hint="vs 15-50% competitors"/>
       </div>
 
-      <div className="grid grid-cols-2 gap-3">
-        <div className="rounded-xl border border-[#E5E7EB] p-5">
-          <div className="text-[10px] uppercase tracking-wider font-mono text-[#A1A1AA] mb-2">Competitor Markup (hover for context)</div>
-          <div className="space-y-3">
-            <CompetitorBar name="Andela" markup={45} raised="$381M"/>
-            <CompetitorBar name="Turing" markup={30} raised="$3.5B val"/>
-            <CompetitorBar name="Mercor" markup={35} raised="$2B val in 2y"/>
-            <CompetitorBar name="Forge (Y3 target)" markup={1} raised="Infrastructure" highlight/>
-          </div>
-        </div>
-
-        <div className="rounded-xl bg-[#0A0A0A] text-white p-5">
-          <div className="text-[10px] uppercase tracking-wider font-mono text-[#2563EB] mb-2">The Redrob asset nobody is using</div>
-          <p className="text-sm leading-relaxed">
-            Redrob already has the candidate side (Resume Ranker, Job Search, 700M profile graph) and the recruiter side (Company Search).
-          </p>
-          <p className="text-sm leading-relaxed mt-3 font-semibold text-[#2563EB]">
-            What&apos;s missing is the verification layer that connects them — and that&apos;s exactly what Forge ships.
-          </p>
+      <div className="rounded-xl border border-[#E5E7EB] p-5 mb-4">
+        <div className="text-[10px] uppercase tracking-wider font-mono text-[#A1A1AA] mb-3">Competitor Markup — why agencies capture Redrob&apos;s revenue (hover for context)</div>
+        <div className="space-y-3">
+          <CompetitorBar name="Andela" markup={40} raised="$381M Series E" detail="15–40% markup on Indian talent placement. SoftBank-backed."/>
+          <CompetitorBar name="Turing" markup={40} raised="$3.5B valuation" detail="30–50% markup. AI-matched remote engineers."/>
+          <CompetitorBar name="Mercor" markup={35} raised="$2B valuation" detail="AI-matched but no credential layer. $2B val in 2 years."/>
+          <CompetitorBar name="Redrob Forge" markup={1} raised="Built-in" detail="0% placement markup. Verification is a platform feature, not a service fee." highlight/>
         </div>
       </div>
 
       <SlideSources items={[
-        { num: '1', ref: 'Burning Glass Institute & Harvard, "Skills-Based Hiring Report 2025"' },
-        { num: '2', ref: 'Fuller, J. et al., "The Emerging Degree Reset" — HBR, Feb 2024' },
-        { num: '3', ref: 'Andela Series E (Sept 2021) — $381M led by SoftBank Vision Fund 2' },
-        { num: '4', ref: 'Mercor Series C (Feb 2025) — $100M raise at $2B val' },
-        { num: '5', ref: 'Turing.com — $3.5B valuation (Aug 2024)' },
-        { num: '6', ref: 'NASSCOM-Zinnov, "Indian IT Hiring Outlook 2025"' },
+        { num: '1', ref: 'Burning Glass Institute, "Skills-Based Hiring 2024" — burningglassinstitute.org/research/skills-based-hiring-2024' },
+        { num: '2', ref: 'Fuller & Raman, "The Emerging Degree Reset," Harvard Business School, Feb 2023 — hbs.edu/managing-the-future-of-work' },
+        { num: '3', ref: 'NASSCOM, "Technology Sector in India 2024" — nasscom.in/knowledge-center/publications' },
+        { num: '4', ref: 'SHRM, "Average Time to Fill a Job" — shrm.org/topics-tools/news/talent-acquisition' },
+        { num: '5', ref: 'W3C, "Verifiable Credentials Data Model v2.0" — w3.org/TR/vc-data-model-2.0' },
+        { num: '6', ref: 'TechCrunch — Andela $381M (Sep 2021), Mercor $2B (Jan 2025); Forbes — Turing' },
       ]}/>
     </SlideWrap>
   )
@@ -87,15 +86,15 @@ function StatCard({ value, label, hint }: any) {
   )
 }
 
-function CompetitorBar({ name, markup, raised, highlight }: any) {
+function CompetitorBar({ name, markup, raised, detail, highlight }: any) {
   return (
-    <HoverCard title={name} body={`${name} raised ${raised}. They take ${markup}% margin on Indian talent placement. Their entire business model depends on holding this markup.`}>
+    <HoverCard title={name} body={`${detail} Raised/valued at ${raised}.`}>
       <div className="flex items-center gap-2">
         <div className={`w-32 text-xs ${highlight ? 'text-[#2563EB] font-semibold' : 'text-[#0A0A0A]'}`}>{name}</div>
         <div className="flex-1 h-5 bg-[#F4F4F5] rounded-full overflow-hidden">
           <div className={highlight ? 'h-full bg-[#2563EB]' : 'h-full bg-[#DC2626]'} style={{ width: `${(markup / 50) * 100}%` }}/>
         </div>
-        <div className={`w-14 text-right text-xs font-mono ${highlight ? 'text-[#2563EB] font-semibold' : 'text-[#525252]'}`}>{markup}%</div>
+        <div className={`w-14 text-right text-xs font-mono ${highlight ? 'text-[#2563EB] font-semibold' : 'text-[#525252]'}`}>{highlight ? '0%' : `${markup}%`}</div>
       </div>
     </HoverCard>
   )
