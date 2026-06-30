@@ -1,22 +1,52 @@
 import { SlideWrap, SlideHeader, HoverCard, SlideSources } from '../PresentationDeck'
 
-// AARRR pirate funnel for candidates, simplified funnel for recruiters
-const CANDIDATE_STAGES = [
-  { name: 'Awareness', pct: 100, count: '5M', tool: 'Free Career Path · Redrob App Store NEW tile', detail: 'Anonymous user lands on Career Path Engine. Pastes resume + types goal. Llama generates 3 distinct strategy-labelled routes. No login required.' },
-  { name: 'Signup', pct: 18, count: '900K', tool: '"Save your path" gate', detail: '18% conversion target based on Career Path → signup wall on "save / drill into nodes". Industry benchmark for similar SaaS top-of-funnel is 8-15%.' },
-  { name: 'Activation', pct: 35, count: '315K', tool: 'Skill Studio · first credential minted', detail: 'Activation event = first credential earned. Open-ended 15-min task (Market Sizing / PRD / Positioning). LLM-graded against rubric. Score ≥70 mints W3C VC.' },
-  { name: 'Engagement', pct: 40, count: '126K', tool: 'Challenges · applied to 1+', detail: 'Credentialed candidate sees closed challenges where they meet prerequisites. Submits artifact + does AI defence interview. Top 5 reach recruiter.' },
-  { name: 'Conversion', pct: 12, count: '15K', tool: 'Paid trial · ₹25K stipend', detail: 'Top-2 finalists invited to paid 2-week trial sprint. ₹25K in escrow, paid regardless of hire outcome. ~50% trial-to-hire ratio.' },
-  { name: 'Hire / Referral', pct: 50, count: '7.5K', tool: 'Hired + W3C credential', detail: 'Hire rate 50% of trials. Both finalists walk away with a trial credential. Hired candidate shares on LinkedIn → top of funnel for next cohort.' },
+const JOURNEY_STAGES = [
+  {
+    stage: 'Discover',
+    before: 'Finds Redrob via job search. Browses listings. Leaves.',
+    after: 'Finds Career Path tile → pastes resume → gets 3 role routes in 30 sec. No login.',
+    forge: 'Career Path (free)',
+    color: '#2563EB',
+  },
+  {
+    stage: 'Onboard',
+    before: 'Creates account. Uploads resume. Waits for recruiter to find them.',
+    after: '"Save your path" → signup → takes first Skill Studio task → earns W3C credential in 20 min.',
+    forge: 'Skill Studio + Credential Wallet',
+    color: '#1E40AF',
+  },
+  {
+    stage: 'Engage',
+    before: 'Applies to jobs. Gets lost in 800-applicant pile. No feedback.',
+    after: 'Credentialed → sees closed Challenges → submits real work → AI Defence Interview → ranked top 5.',
+    forge: 'Challenges + Defence Interview',
+    color: '#7C3AED',
+  },
+  {
+    stage: 'Value',
+    before: 'Maybe gets an interview after weeks. No skill signal sent.',
+    after: '2-week paid trial (₹25K stipend) → hired in 4 months. Credential shared on LinkedIn → referral loop.',
+    forge: 'Paid Trial + Leaderboard',
+    color: '#DC2626',
+  },
 ]
 
-const RECRUITER_STAGES = [
-  { name: 'Outreach', pct: 100, count: '8,000', tool: 'Founder Slack groups · YC India · Surge', detail: 'Top of funnel from founder-led startups (Series A/B, 5-15 hires/yr). 600 addressable cohort companies.' },
-  { name: 'Signup', pct: 12, count: '960', tool: 'Free challenge posting', detail: 'No upfront cost — outcome-based pricing kills the procurement objection. Founder-led decisions, no agency lock-in.' },
-  { name: 'Post 1st challenge', pct: 65, count: '624', tool: '4-step wizard · template-based', detail: '~8 minutes from signup to first posted challenge. Pre-built templates: Backend Sprint, PM Discovery, Frontend Build, ML Forecast.' },
-  { name: 'Trial', pct: 70, count: '437', tool: 'Top 2 finalists in 2-week sprint', detail: 'AI ranks top 5 submissions. Recruiter picks 2 for paid trial. ₹4,999 trial workspace fee + escrow pass-through.' },
-  { name: 'Hire', pct: 65, count: '284', tool: '₹49,999 success fee', detail: 'Win-rate target 65% (trial → hire). Recruiter pays only on successful hire — ₹49,999 OR 8% of first-year CTC, whichever lower.' },
-  { name: 'Repeat', pct: 80, count: '227', tool: 'Posts 2+ more challenges', detail: 'Repeat rate 80%. Average 3 challenges/year per active recruiter. Expansion to enterprise contract at 20+ hires/yr.' },
+const CANDIDATE_FUNNEL = [
+  { name: 'Career Path (free)', count: '5M', pct: '100%' },
+  { name: 'Signup (save path)', count: '900K', pct: '18%' },
+  { name: 'First credential', count: '315K', pct: '35%' },
+  { name: 'Challenge applied', count: '126K', pct: '40%' },
+  { name: 'Paid trial', count: '15K', pct: '12%' },
+  { name: 'Hired + referral', count: '7.5K', pct: '50%' },
+]
+
+const RECRUITER_FUNNEL = [
+  { name: 'Founder outreach', count: '8,000', pct: '100%' },
+  { name: 'Free challenge post', count: '960', pct: '12%' },
+  { name: 'First challenge live', count: '624', pct: '65%' },
+  { name: 'Trial (top 2)', count: '437', pct: '70%' },
+  { name: 'Hire (₹49,999)', count: '284', pct: '65%' },
+  { name: 'Repeat (2+ posts)', count: '227', pct: '80%' },
 ]
 
 export function Slide05() {
@@ -24,63 +54,87 @@ export function Slide05() {
     <SlideWrap>
       <SlideHeader
         number="04"
-        framework="AARRR Funnel · Two-sided"
-        title={<>Two funnels. <span className="text-[#2563EB]">One marketplace.</span></>}
-        subtitle="Year 3 target volume at each stage. Drop-off % between stages. Hover any stage for the activating Forge tool + benchmark."
+        framework="User Journey Map"
+        title={<>Discover → Onboard → Engage → <span className="text-[#2563EB]">Value.</span></>}
+        subtitle=""
       />
 
-      <div className="grid lg:grid-cols-2 gap-8">
-        <FunnelColumn title="Candidate funnel" colour="#2563EB" stages={CANDIDATE_STAGES}/>
-        <FunnelColumn title="Recruiter funnel" colour="#DC2626" stages={RECRUITER_STAGES}/>
+      {/* Journey Map — mandatory visual */}
+      <div className="grid grid-cols-4 gap-0 mb-6">
+        {JOURNEY_STAGES.map((s, i) => (
+          <div key={s.stage} className="relative">
+            {/* Stage header */}
+            <div className="text-center py-2 text-white text-xs font-bold uppercase tracking-wider" style={{ background: s.color }}>
+              {s.stage}
+            </div>
+
+            <div className="border border-t-0 border-[#E5E7EB] p-3 h-full flex flex-col gap-2">
+              {/* Before */}
+              <div>
+                <div className="text-[8px] uppercase tracking-wider font-mono text-[#DC2626] font-bold mb-0.5">Before Forge</div>
+                <div className="text-[10px] text-[#A1A1AA] leading-snug line-through decoration-[#DC2626]/40">{s.before}</div>
+              </div>
+
+              {/* After */}
+              <div>
+                <div className="text-[8px] uppercase tracking-wider font-mono text-[#22C55E] font-bold mb-0.5">With Forge</div>
+                <div className="text-[10px] text-[#0A0A0A] leading-snug font-medium">{s.after}</div>
+              </div>
+
+              {/* Intervention */}
+              <div className="mt-auto pt-2 border-t border-[#E5E7EB]">
+                <div className="text-[9px] font-mono font-bold" style={{ color: s.color }}>{s.forge}</div>
+              </div>
+            </div>
+
+            {/* Arrow between stages */}
+            {i < 3 && (
+              <div className="absolute top-[14px] -right-2 z-10 text-[#A1A1AA] text-sm">→</div>
+            )}
+          </div>
+        ))}
       </div>
 
-      <div className="mt-6 rounded-xl bg-[#F8FAFC] border border-[#E5E7EB] p-4 grid grid-cols-4 gap-3 text-xs">
-        <KeyMetric label="Time-to-first-value (candidate)" value="2 min" hint="Career Path is no-login"/>
-        <KeyMetric label="Time-to-first-credential" value="< 20 min" hint="Activation event"/>
-        <KeyMetric label="Time-to-first-hire (recruiter)" value="28 days" hint="vs 90+ days agency average"/>
-        <KeyMetric label="Cost-per-hire" value="₹1L" hint="vs ₹4-6L agency"/>
+      {/* Two funnels — compact */}
+      <div className="grid grid-cols-2 gap-6 mb-4">
+        <CompactFunnel title="Candidate AARRR" color="#2563EB" stages={CANDIDATE_FUNNEL}/>
+        <CompactFunnel title="Recruiter funnel" color="#DC2626" stages={RECRUITER_FUNNEL}/>
+      </div>
+
+      {/* Key metrics */}
+      <div className="grid grid-cols-4 gap-3">
+        <Metric value="30 sec" label="Time to first value" />
+        <Metric value="20 min" label="Time to first credential" />
+        <Metric value="28 days" label="Recruiter time-to-hire" />
+        <Metric value="₹1L" label="Cost-per-hire vs ₹5L agency" />
       </div>
 
       <SlideSources items={[
-        { num: '1', ref: 'McClure, D. "AARRR Pirate Metrics" — Stanford CS Lecture / 500 Startups, 2007' },
-        { num: '2', ref: 'OpenView Partners, "SaaS Activation Benchmarks 2024" — 18% top-of-funnel conversion median' },
-        { num: '3', ref: 'NASSCOM Tech Hiring Pulse 2024 — time-to-hire baseline for Indian startups' },
-        { num: '4', ref: 'Agency hiring fee benchmark — Michael Page India Salary Guide 2024 (₹4-6L Tier-1)' },
+        { num: '1', ref: 'McClure, D. "AARRR Pirate Metrics" — 500 Startups, 2007' },
+        { num: '2', ref: 'OpenView Partners, "SaaS Activation Benchmarks 2024"' },
+        { num: '3', ref: 'NASSCOM, "Tech Hiring Pulse 2024" — time-to-hire baseline' },
       ]}/>
     </SlideWrap>
   )
 }
 
-function FunnelColumn({ title, colour, stages }: { title: string; colour: string; stages: any[] }) {
+function CompactFunnel({ title, color, stages }: { title: string; color: string; stages: any[] }) {
   return (
     <div>
-      <div className="text-[11px] uppercase tracking-[0.18em] font-mono mb-4" style={{ color: colour }}>{title}</div>
-      <div className="space-y-1">
+      <div className="text-[10px] uppercase tracking-[0.18em] font-mono mb-2" style={{ color }}>{title}</div>
+      <div className="space-y-0.5">
         {stages.map((s, i) => {
-          const width = 100 - (i * 13)
+          const width = 100 - (i * 12)
           return (
-            <div key={s.name} className="relative">
-              <HoverCard title={`${s.name} · ${s.tool}`} body={s.detail}>
-                <div className="flex items-center gap-3 cursor-help">
-                  <div className="w-16 shrink-0 text-right">
-                    <div className="text-[10px] font-mono text-[#A1A1AA]">{s.count}</div>
-                  </div>
-                  <div className="flex-1 relative">
-                    <div className="rounded-md py-3 px-4 text-white text-sm font-medium transition-all hover:brightness-110"
-                         style={{ background: colour, width: `${width}%`, margin: '0 auto', textAlign: 'center' }}>
-                      {s.name}
-                    </div>
-                  </div>
-                  <div className="w-12 shrink-0">
-                    <div className="text-[10px] font-mono" style={{ color: colour }}>{s.pct}%</div>
-                  </div>
+            <div key={s.name} className="flex items-center gap-2">
+              <div className="w-12 text-right text-[9px] font-mono text-[#A1A1AA]">{s.count}</div>
+              <div className="flex-1">
+                <div className="rounded py-1.5 px-3 text-white text-[10px] font-medium"
+                     style={{ background: color, width: `${width}%`, margin: '0 auto', textAlign: 'center', opacity: 1 - (i * 0.1) }}>
+                  {s.name}
                 </div>
-              </HoverCard>
-              {i < stages.length - 1 && (
-                <div className="text-center my-0.5">
-                  <span className="text-[9px] font-mono text-[#A1A1AA]">↓ {Math.round((stages[i + 1].pct / stages[i].pct) * 100)}% drop-off</span>
-                </div>
-              )}
+              </div>
+              <div className="w-8 text-[9px] font-mono" style={{ color }}>{s.pct}</div>
             </div>
           )
         })}
@@ -89,12 +143,11 @@ function FunnelColumn({ title, colour, stages }: { title: string; colour: string
   )
 }
 
-function KeyMetric({ label, value, hint }: any) {
+function Metric({ value, label }: { value: string; label: string }) {
   return (
-    <div>
-      <div className="text-[10px] uppercase tracking-wider font-mono text-[#A1A1AA]">{label}</div>
-      <div className="font-semibold text-xl text-[#0A0A0A] mt-1">{value}</div>
-      <div className="text-[10px] text-[#525252]">{hint}</div>
+    <div className="rounded-lg border border-[#E5E7EB] p-3 text-center">
+      <div className="font-bold text-lg text-[#0A0A0A]">{value}</div>
+      <div className="text-[9px] text-[#A1A1AA] font-mono uppercase tracking-wider mt-1">{label}</div>
     </div>
   )
 }
