@@ -101,16 +101,6 @@ export function Slide03() {
         ))}
       </div>
 
-      <div className="mt-5 rounded-xl bg-[#F8FAFC] border border-[#E5E7EB] p-4">
-        <div className="text-[10px] uppercase tracking-wider font-mono text-[#2563EB] mb-2">ECP → ICP Rollout Discipline</div>
-        <div className="grid grid-cols-4 gap-2 text-xs">
-          <Phase q="Y0 Q1-Q2" who="Ankita — IIM-K only (1 campus, 200 students)"/>
-          <Phase q="Y0 Q3-Q4" who="Ankita + Priya — Top-7 MBA + founder-led recruiters"/>
-          <Phase q="Y1" who="+ Vikram — Lateral pivots · 50 paying recruiters"/>
-          <Phase q="Y2-Y3" who="+ Saurabh — Tier 2/3 · Global Verifier API"/>
-        </div>
-      </div>
-
       <SlideSources items={[
         { num: '1', ref: 'Cooper, A. "About Face: The Essentials of Interaction Design" — persona methodology, Wiley 2014' },
         { num: '2', ref: 'IIM Bangalore Placement Report 2024 — cohort size + average package data' },
@@ -184,11 +174,3 @@ function PersonaCard({ p }: { p: Persona }) {
   )
 }
 
-function Phase({ q, who }: any) {
-  return (
-    <div className="rounded-lg bg-white border border-[#E5E7EB] p-2">
-      <div className="text-[9px] font-mono text-[#2563EB] uppercase tracking-wider">{q}</div>
-      <div className="text-[11px] text-[#0A0A0A] mt-1 leading-tight">{who}</div>
-    </div>
-  )
-}
