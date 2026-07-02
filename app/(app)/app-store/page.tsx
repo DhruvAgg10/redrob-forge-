@@ -30,7 +30,7 @@ const APPS: App[] = [
   { icon: BarChart3, iconBg: '#FEE8E6', iconColor: '#E94B3C', title: 'Skills Leaderboard', desc: 'See how your verified skills rank across India.', state: 'forge', href: '/leaderboard' },
   { icon: Code2, iconBg: '#FEE8E6', iconColor: '#E94B3C', title: 'Challenges', desc: 'Real company sprints. Submit work. Paid trial. Get hired.', state: 'forge', href: '/challenges' },
   { icon: Compass, iconBg: '#FEE8E6', iconColor: '#E94B3C', title: 'Career Path', desc: 'Paste your resume + a goal — get 3 distinct strategy-labelled routes.', state: 'forge', href: '/path' },
-  { icon: Video, iconBg: '#FEE8E6', iconColor: '#E94B3C', title: 'Interview Coach', desc: 'AI defence interview after every challenge submission. Records + scores.', state: 'forge', href: '/challenges' },
+  { icon: Video, iconBg: '#EDE9FE', iconColor: '#7C5DDB', title: 'Interview Coach', desc: 'AI defence interview after every challenge submission. Records + scores.', state: 'forge', href: '/defence' },
   { icon: MessageSquare, iconBg: '#FEE8E6', iconColor: '#E94B3C', title: 'Market Pulse', desc: 'Natural-language queries on the live hiring graph.', state: 'forge', href: '/market-pulse' },
   { icon: Wallet, iconBg: '#FEE8E6', iconColor: '#E94B3C', title: 'Credential Wallet', desc: 'Hold and share your W3C verifiable credentials.', state: 'forge', href: '/wallet' },
   { icon: MessageSquare, iconBg: '#FEE8E6', iconColor: '#E94B3C', title: 'Community', desc: 'Show & tell, ask the room, peer mentoring with AI personas of top candidates.', state: 'forge', href: '/community' },
