@@ -10,7 +10,7 @@ type Persona = {
   motivation: string
   behavior: string
   painPoints: string[]
-  needs: string[]
+  needs: string
   forgeUnlock: string
 }
 

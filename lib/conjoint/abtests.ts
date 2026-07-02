@@ -128,21 +128,21 @@ export function runAbTest(personas: Persona[], test: Omit<AbTest, 'results'> & {
 
 export const DEFAULT_AB_TESTS = (): Omit<AbTest, 'results'>[] => [
   {
-    id: 'price-pro-199-vs-249',
-    hypothesis: 'A ₹50 increase from ₹199 to ₹249 will not significantly impact Pro tier conversion.',
+    id: 'price-basic-0-vs-99',
+    hypothesis: 'Students earning ₹0-8L will not pay ₹99 for 2 extra credentials per month.',
     primaryMetric: 'conversion to subscribe',
     variants: {
-      A: { name: 'Pro @ ₹199/mo', bundle: { price: 199, credentials: 10, atsScans: '10 + AI', careerPath: 5, defenceInterview: '2/mo', leaderboard: 'Boosted', annualDiscount: 30 } },
-      B: { name: 'Pro @ ₹249/mo', bundle: { price: 249, credentials: 10, atsScans: '10 + AI', careerPath: 5, defenceInterview: '2/mo', leaderboard: 'Boosted', annualDiscount: 30 } },
+      A: { name: 'Free @ ₹0/mo · 1 cred', bundle: { price: 0, credentials: 1, atsScans: '3 basic', careerPath: 1, defenceInterview: 'None', leaderboard: 'Standard', annualDiscount: 0 } },
+      B: { name: 'Basic @ ₹99/mo · 3 cred', bundle: { price: 99, credentials: 3, atsScans: '3 basic', careerPath: 1, defenceInterview: 'None', leaderboard: 'Standard', annualDiscount: 0 } },
     },
   },
   {
-    id: 'free-tier-1-vs-3',
-    hypothesis: 'Giving free users 3 credentials/mo instead of 1 will boost free-tier engagement enough to lift premium conversion later.',
+    id: 'defence-value-100',
+    hypothesis: 'Defence Interview is worth ₹100/mo to career-switchers and MBA aspirants.',
     primaryMetric: 'conversion to subscribe',
     variants: {
-      A: { name: 'Free: 1 credential/mo', bundle: { price: 0, credentials: 1, atsScans: '3 basic', careerPath: 1, defenceInterview: 'None', leaderboard: 'Standard', annualDiscount: 0 } },
-      B: { name: 'Free: 3 credentials/mo', bundle: { price: 0, credentials: 3, atsScans: '3 basic', careerPath: 3, defenceInterview: 'None', leaderboard: 'Standard', annualDiscount: 0 } },
+      A: { name: 'Pro @ ₹199/mo · no Defence', bundle: { price: 199, credentials: 10, atsScans: '10 + AI', careerPath: 5, defenceInterview: 'None', leaderboard: 'Boosted', annualDiscount: 30 } },
+      B: { name: 'Pro @ ₹299/mo · Defence 2/mo', bundle: { price: 299, credentials: 10, atsScans: '10 + AI', careerPath: 5, defenceInterview: '2/mo', leaderboard: 'Boosted', annualDiscount: 30 } },
     },
   },
   {
@@ -155,21 +155,30 @@ export const DEFAULT_AB_TESTS = (): Omit<AbTest, 'results'>[] => [
     },
   },
   {
-    id: 'defence-bundling',
-    hypothesis: 'Including Defence Interview practice in Pro (vs Pro+ only) drives stronger Pro conversion than incremental margin loss.',
+    id: 'status-badge-premium',
+    hypothesis: 'Status-premium personas will pay 67% more for verified hire-ready badge.',
     primaryMetric: 'conversion to subscribe',
     variants: {
-      A: { name: 'Pro · no Defence', bundle: { price: 299, credentials: 10, atsScans: '10 + AI', careerPath: 5, defenceInterview: 'None', leaderboard: 'Boosted', annualDiscount: 30 } },
-      B: { name: 'Pro · Defence 2/mo', bundle: { price: 299, credentials: 10, atsScans: '10 + AI', careerPath: 5, defenceInterview: '2/mo', leaderboard: 'Boosted', annualDiscount: 30 } },
+      A: { name: 'Pro @ ₹299/mo · Boosted', bundle: { price: 299, credentials: 10, atsScans: '10 + AI', careerPath: 5, defenceInterview: '2/mo', leaderboard: 'Boosted', annualDiscount: 30 } },
+      B: { name: 'Pro+ @ ₹499/mo · Verified hire-ready', bundle: { price: 499, credentials: 10, atsScans: '10 + AI', careerPath: 5, defenceInterview: '2/mo', leaderboard: 'Verified hire-ready', annualDiscount: 30 } },
     },
   },
   {
-    id: 'verified-hire-ready-badge',
-    hypothesis: 'Status-conscious segments (IIM/IIT + MBA aspirants) will pay ₹100 more for a "Verified hire-ready" badge over "Boosted" leaderboard.',
+    id: 'unlimited-ceiling',
+    hypothesis: 'The word "Unlimited" drives >15% conversion lift among feature-maximizer personas.',
     primaryMetric: 'conversion to subscribe',
     variants: {
-      A: { name: 'Pro+ · Boosted lb · ₹399', bundle: { price: 399, credentials: 'Unlimited', atsScans: 'Unlimited + AI', careerPath: 'Unlimited', defenceInterview: 'Unlimited', leaderboard: 'Boosted', annualDiscount: 40 } },
-      B: { name: 'Pro+ · Verified hire-ready · ₹499', bundle: { price: 499, credentials: 'Unlimited', atsScans: 'Unlimited + AI', careerPath: 'Unlimited', defenceInterview: 'Unlimited', leaderboard: 'Verified hire-ready', annualDiscount: 40 } },
+      A: { name: 'Pro @ ₹249/mo · 5 cred', bundle: { price: 249, credentials: 5, atsScans: '10 + AI', careerPath: 5, defenceInterview: '2/mo', leaderboard: 'Boosted', annualDiscount: 30 } },
+      B: { name: 'Pro @ ₹349/mo · Unlimited cred', bundle: { price: 349, credentials: 'Unlimited', atsScans: '10 + AI', careerPath: 5, defenceInterview: '2/mo', leaderboard: 'Boosted', annualDiscount: 30 } },
+    },
+  },
+  {
+    id: 'peer-mentor-value',
+    hypothesis: 'AI Peer Mentor + badge bundle justifies ₹200 premium for salary-jump seekers.',
+    primaryMetric: 'conversion to subscribe',
+    variants: {
+      A: { name: 'Pro @ ₹299/mo · no Peer Mentor · Boosted', bundle: { price: 299, credentials: 10, atsScans: '10 + AI', careerPath: 5, defenceInterview: '2/mo', leaderboard: 'Boosted', annualDiscount: 30 } },
+      B: { name: 'Pro+ @ ₹499/mo · Peer Mentor · Verified hire-ready', bundle: { price: 499, credentials: 'Unlimited', atsScans: 'Unlimited + AI', careerPath: 'Unlimited', defenceInterview: '5/mo', leaderboard: 'Verified hire-ready', annualDiscount: 40 } },
     },
   },
 ]

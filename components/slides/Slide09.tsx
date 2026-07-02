@@ -1,19 +1,27 @@
 import { SlideWrap, SlideHeader, HoverCard, SlideSources } from '../PresentationDeck'
 
-// Kano model: Must-have / Performance / Delighter features
-// BCG matrix: Stars / Question Marks / Cash Cows / Dogs
-
-const KANO_FEATURES = [
-  { type: 'Must-have', features: ['Free Career Path', 'Basic Skill Studio (1/mo)', 'W3C credential mint', 'ATS scanner (basic)'], detail: 'Without these, the product fails. Users expect them silently. No upside if you ship them — major downside if you don\'t.' },
-  { type: 'Performance', features: ['Unlimited credentials', 'AI-graded ATS', '10 Career Path scans/mo', '2 Defence interview sessions', 'Boosted leaderboard'], detail: 'More = more satisfaction. Linear relationship. Pro tier (₹199-299) is built entirely from these.' },
-  { type: 'Delighter', features: ['Verified hire-ready badge', 'AI Peer Mentor', 'Unlimited Defence Interview', 'Verifier API at $0.05', 'Custom verifier domain'], detail: 'Wow features. Pro+ tier (₹399-499). Users don\'t expect them. When they see them, they switch from competitors.' },
+const KANO_ROWS = [
+  { type: 'Must-have', tier: 'Free ₹0', color: '#525252', features: ['Career Path (basic)', 'ATS Scanner', 'W3C credential mint', '3 creds/mo'] },
+  { type: 'Performance', tier: 'Pro ₹299/mo', color: '#2563EB', features: ['10 Career Path scans', 'AI-graded ATS', '2 Defence sessions', 'Boosted leaderboard'] },
+  { type: 'Delighter', tier: 'Pro+ ₹499/mo', color: '#DC2626', features: ['AI Peer Mentor', 'Hire-ready badge', 'Unlimited Defence', 'Verifier API'] },
 ]
 
-const BCG = [
-  { quad: 'Stars', x: 75, y: 80, label: 'Skill Studio + Challenges', detail: 'High growth, high share. Activation + monetization engine. Where Year 1-2 investment goes.' },
-  { quad: 'Question Marks', x: 80, y: 40, label: 'Community + Mentor AI', detail: 'High growth potential, low share today. Could be Star or Dog. Test for retention impact in Y1.' },
-  { quad: 'Cash Cows', x: 25, y: 75, label: 'Verifier API (Y3)', detail: 'Low growth (mature credential standard), high share. Pays for the rest of the platform.' },
-  { quad: 'Dogs', x: 20, y: 25, label: 'Resume Builder (legacy)', detail: 'Low growth, low share. Replaced by ATS Scanner. Documented to show discipline of what we did NOT build.' },
+const PRICING_TIERS = [
+  {
+    name: 'Free', price: '₹0', priceNote: 'forever',
+    features: ['3 credentials/mo', 'Basic ATS scanner', '3 Career Path scans', 'Standard leaderboard'],
+    hook: 'Career Path results expire after 30 days → re-engage to refresh',
+  },
+  {
+    name: 'Pro', price: '₹299', priceNote: '/mo', highlight: true,
+    features: ['10 credentials/mo', 'AI-graded ATS', '10 Career Path scans', '2 Defence sessions', 'Boosted leaderboard'],
+    hook: 'Credential wallet grows over time → switching cost increases every month',
+  },
+  {
+    name: 'Pro+', price: '₹499', priceNote: '/mo',
+    features: ['Unlimited everything', 'Verified hire-ready badge', 'AI Peer Mentor', 'Unlimited Defence Interview'],
+    hook: 'AI Peer Mentor learns your style → personalized = sticky',
+  },
 ]
 
 export function Slide09() {
@@ -21,144 +29,133 @@ export function Slide09() {
     <SlideWrap>
       <SlideHeader
         number="08"
-        framework="Kano Model + BCG Portfolio Matrix"
-        title={<>Pricing tiers map to <span className="text-[#2563EB]">Kano feature classes.</span> Portfolio mapped via BCG.</>}
-        subtitle="Validated by 100-respondent synthetic conjoint + n=28 live respondents. Ranges, not points. Hover for the Kano + BCG reasoning."
+        framework="Pricing & Monetization Strategy"
+        title={<>Three revenue streams mapped to <span className="text-[#2563EB]">Kano feature classes.</span></>}
+        subtitle="Pricing backed by conjoint WTP analysis (peak ₹199-349) and industry benchmarks."
       />
 
-      <div className="grid lg:grid-cols-2 gap-6 mb-6">
-        {/* Kano model */}
-        <div>
-          <div className="text-[10px] uppercase tracking-[0.18em] font-mono text-[#A1A1AA] mb-3">Kano Feature Classification</div>
-          <div className="space-y-3">
-            {KANO_FEATURES.map((k, i) => (
-              <HoverCard key={k.type} title={k.type + ' features'} body={k.detail}>
-                <div className="rounded-xl border border-[#E5E7EB] p-4 cursor-help hover:border-[#2563EB]">
-                  <div className="flex items-center justify-between mb-2">
-                    <div className="text-xs font-mono font-semibold uppercase tracking-wider"
-                         style={{ color: i === 0 ? '#525252' : i === 1 ? '#2563EB' : '#DC2626' }}>
-                      {k.type}
-                    </div>
-                    <div className="text-[10px] font-mono text-[#A1A1AA]">
-                      Tier · {i === 0 ? 'Free' : i === 1 ? 'Pro ₹199-299' : 'Pro+ ₹399-499'}
-                    </div>
-                  </div>
-                  <div className="flex flex-wrap gap-1.5">
-                    {k.features.map((f) => (
-                      <span key={f} className="text-[10px] px-2 py-0.5 rounded-full bg-[#F4F4F5] text-[#0A0A0A]">{f}</span>
-                    ))}
-                  </div>
-                </div>
-              </HoverCard>
-            ))}
+      {/* Judging Q&A boxes */}
+      <div className="grid grid-cols-3 gap-3 mb-5">
+        <JudgingAnswer
+          question="What business value is created?"
+          answer="Free tier drives mass user engagement → Pro converts at 3-5% (HR SaaS avg 3.3%) → per-hire fee captures recruiter willingness at 50-75% below agency costs."
+          color="#2563EB"
+        />
+        <JudgingAnswer
+          question="How does it contribute to platform growth?"
+          answer="Free Career Path = zero-friction top-of-funnel. Every credential shared on LinkedIn = organic acquisition. Each hire makes the AI sharper."
+          color="#0A0A0A"
+        />
+        <JudgingAnswer
+          question="What monetization & retention opportunities?"
+          answer="3 streams: B2C subs (₹299/mo), B2B per-hire (₹49,999), Enterprise SaaS (₹15L-₹1Cr/yr). Retention: credential wallet locks in users."
+          color="#DC2626"
+        />
+      </div>
+
+      {/* Kano classification — compact */}
+      <div className="mb-5">
+        <div className="text-[10px] uppercase tracking-[0.18em] font-mono text-[#A1A1AA] mb-2">Kano Feature Classification</div>
+        <div className="grid grid-cols-3 gap-3">
+          {KANO_ROWS.map((k) => (
+            <div key={k.type} className="rounded-xl border border-[#E5E7EB] p-3">
+              <div className="flex items-center justify-between mb-1.5">
+                <span className="text-[10px] font-mono font-semibold uppercase tracking-wider" style={{ color: k.color }}>{k.type}</span>
+                <span className="text-[9px] font-mono text-[#A1A1AA]">{k.tier}</span>
+              </div>
+              <div className="flex flex-wrap gap-1">
+                {k.features.map((f) => (
+                  <span key={f} className="text-[9px] px-1.5 py-0.5 rounded-full bg-[#F4F4F5] text-[#0A0A0A]">{f}</span>
+                ))}
+              </div>
+            </div>
+          ))}
+        </div>
+      </div>
+
+      {/* Pricing tiers with retention hooks */}
+      <div className="grid grid-cols-3 gap-3 mb-5">
+        {PRICING_TIERS.map((t) => (
+          <div key={t.name} className={`rounded-2xl p-4 border ${t.highlight ? 'border-[#2563EB] bg-[#2563EB]/5' : 'border-[#E5E7EB]'}`}>
+            <div className="text-[10px] uppercase tracking-wider font-mono text-[#A1A1AA]">{t.name}</div>
+            <div className="font-semibold text-xl mt-1 text-[#0A0A0A]">{t.price}<span className="text-xs text-[#A1A1AA] font-normal"> {t.priceNote}</span></div>
+            <ul className="mt-2 space-y-0.5 text-[11px] text-[#525252]">
+              {t.features.map((f) => <li key={f}>· {f}</li>)}
+            </ul>
+            <div className="mt-2 pt-2 border-t border-[#E5E7EB]">
+              <div className="text-[9px] uppercase tracking-wider font-mono text-[#2563EB] mb-0.5">Retention hook</div>
+              <div className="text-[10px] text-[#525252]">{t.hook}</div>
+            </div>
           </div>
-        </div>
+        ))}
+      </div>
 
-        {/* BCG Matrix */}
-        <div>
-          <div className="text-[10px] uppercase tracking-[0.18em] font-mono text-[#A1A1AA] mb-3">BCG Portfolio Matrix</div>
-          <div className="relative rounded-2xl border border-[#E5E7EB] bg-[#FAFAFA] aspect-square p-6 min-h-[420px]">
-            {/* Quadrant labels */}
-            <div className="absolute top-3 left-1/2 -translate-x-1/2 text-[10px] uppercase tracking-wider font-mono text-[#A1A1AA]">↑ HIGH MARKET GROWTH</div>
-            <div className="absolute bottom-3 left-1/2 -translate-x-1/2 text-[10px] uppercase tracking-wider font-mono text-[#A1A1AA]">↓ Low growth</div>
-            <div className="absolute top-1/2 right-3 -translate-y-1/2 text-[10px] font-mono uppercase tracking-wider text-[#A1A1AA] -rotate-90">← Low share</div>
-            <div className="absolute top-1/2 left-3 -translate-y-1/2 text-[10px] font-mono uppercase tracking-wider text-[#A1A1AA] rotate-90">HIGH SHARE →</div>
-
-            <div className="absolute left-1/2 top-8 bottom-8 w-px bg-[#E5E7EB]"/>
-            <div className="absolute top-1/2 left-8 right-8 h-px bg-[#E5E7EB]"/>
-
-            {/* Quadrant text */}
-            <div className="absolute top-10 left-10 text-[10px] font-mono uppercase tracking-wider text-[#2563EB] font-semibold">★ Stars</div>
-            <div className="absolute top-10 right-10 text-[10px] font-mono uppercase tracking-wider text-[#A1A1AA]">? Question marks</div>
-            <div className="absolute bottom-10 left-10 text-[10px] font-mono uppercase tracking-wider text-[#A1A1AA]">$ Cash cows</div>
-            <div className="absolute bottom-10 right-10 text-[10px] font-mono uppercase tracking-wider text-[#A1A1AA]">✕ Dogs</div>
-
-            {/* Bubbles */}
-            {BCG.map((b) => {
-              const labelLeft = b.x > 60
-              return (
-                <div key={b.quad} className="absolute" style={{ left: `${b.x}%`, top: `${100 - b.y}%`, transform: 'translate(-50%, -50%)' }}>
-                  <HoverCard title={b.quad + ' · ' + b.label} body={b.detail}>
-                    <div className={`rounded-full flex items-center justify-center font-semibold text-xs shadow-md transition hover:scale-110 cursor-help relative ${
-                      b.quad === 'Stars' ? 'bg-[#2563EB] text-white' :
-                      b.quad === 'Cash Cows' ? 'bg-[#0A0A0A] text-white' :
-                      'bg-white border-2 border-[#0A0A0A] text-[#0A0A0A]'
-                    }`} style={{ width: 70, height: 70 }}>{b.quad.split(' ')[0]}</div>
-                  </HoverCard>
-                  <div className={`absolute top-1/2 -translate-y-1/2 text-[10px] font-semibold text-[#0A0A0A] whitespace-nowrap max-w-[140px] ${labelLeft ? 'right-full mr-2 text-right' : 'left-full ml-2'}`}>{b.label}</div>
-                </div>
-              )
-            })}
-          </div>
+      {/* Recruiter pricing strip */}
+      <div className="rounded-2xl border border-[#0A0A0A] bg-[#0A0A0A] text-white p-4 mb-5">
+        <div className="text-[10px] uppercase tracking-wider font-mono text-[#2563EB] mb-2">Recruiter Side · B2B Revenue</div>
+        <div className="grid grid-cols-3 gap-3 text-xs">
+          <RecruiterRow label="Challenge posting" value="Free" detail="Top-of-funnel for recruiters"/>
+          <RecruiterRow label="Per-hire success fee" value="₹49,999" detail="50-75% below agency fees (₹1-2L)" highlight/>
+          <RecruiterRow label="Enterprise (20+ hires/yr)" value="₹15L – ₹1Cr/yr" detail="Platform SaaS for large orgs"/>
         </div>
       </div>
 
-      <div className="grid grid-cols-3 gap-3 mb-6">
-        <PricingTier name="Free" price="₹0" features={['3 credentials/mo', '10 basic ATS', '3 Career Path scans', 'Standard leaderboard']} share="79%"/>
-        <PricingTier name="Pro" price="₹199–₹299" features={['10 credentials/mo', '10 + AI ATS', '5 Career Path', '2 Defence sessions', 'Boosted leaderboard', '35% annual']} share="40-48%" highlight/>
-        <PricingTier name="Pro+" price="₹399–₹499" features={['Unlimited everything', 'Verified hire-ready badge', 'Unlimited Defence', '40% annual']} share="18-22%"/>
-      </div>
-
-      <div className="rounded-2xl border border-[#0A0A0A] bg-[#0A0A0A] text-white p-5">
-        <div className="text-[10px] uppercase tracking-wider font-mono text-[#2563EB] mb-2">Recruiter side · Outcome-based (Sierra/Fin pattern)</div>
-        <div className="grid grid-cols-5 gap-3 text-xs">
-          <RecruiterRow label="Challenge posting" value="Free"/>
-          <RecruiterRow label="Per-hire success fee" value="₹49,999 or 8% CTC" highlight/>
-          <RecruiterRow label="Defence Interview AI" value="₹999/finalist"/>
-          <RecruiterRow label="Trial workspace" value="₹4,999 + escrow"/>
-          <RecruiterRow label="Enterprise (20+ hires/yr)" value="₹15L - ₹1Cr/yr"/>
+      {/* Growth flywheel */}
+      <div className="rounded-xl border border-[#E5E7EB] p-4 mb-4">
+        <div className="text-[10px] uppercase tracking-[0.18em] font-mono text-[#A1A1AA] mb-2">Growth Flywheel</div>
+        <div className="flex items-center justify-center gap-1 text-[10px] font-mono text-[#525252] flex-wrap">
+          <Step label="Free users sign up"/>
+          <Arrow/>
+          <Step label="Earn credentials"/>
+          <Arrow/>
+          <Step label="Share on LinkedIn"/>
+          <Arrow/>
+          <Step label="New users discover"/>
+          <Arrow/>
+          <Step label="Recruiters see verified talent"/>
+          <Arrow/>
+          <Step label="Post challenges"/>
+          <Arrow/>
+          <Step label="More users verify" last/>
         </div>
-      </div>
-
-      <div className="mt-4 grid grid-cols-2 gap-3">
-        <UnitEcon value="20:1" label="Candidate LTV:CAC" hint="CAC ₹120 organic · LTV ₹2,400 over 12mo"/>
-        <UnitEcon value="22:1" label="Recruiter LTV:CAC" hint="CAC ₹8K outbound · LTV ₹1.75L (3 challenges + 1 hire)"/>
+        <div className="text-center text-[9px] text-[#A1A1AA] mt-1 font-mono">↻ Self-reinforcing cycle — each revolution improves AI match quality</div>
       </div>
 
       <SlideSources items={[
-        { num: '1', ref: 'Argyle, L. et al., "Out of One, Many: Using Language Models to Simulate Human Samples" — Political Analysis 31(3), 2023' },
-        { num: '2', ref: 'Brand, J. et al., "Using GPT for Market Research" — HBS Working Paper 23-062, 2023' },
-        { num: '3', ref: 'Aher, G. et al., "Using LLMs to Simulate Multiple Humans" — ICML 2023 (Harvard)' },
-        { num: '4', ref: 'Sierra AI pricing — $0.50-5 per resolution — sierra.ai/pricing (Mar 2025)' },
-        { num: '5', ref: 'Intercom Fin AI agent — $0.99 per resolved ticket — intercom.com/fin' },
-        { num: '6', ref: 'Kano, N. "Attractive Quality vs Must-be Quality" — Quality Journal 14(2), 1984' },
-        { num: '7', ref: 'BCG Growth-Share Matrix — Henderson, B. "Product Portfolio" — BCG Perspectives, 1970' },
-        { num: '8', ref: 'Van Westendorp PSM — Van Westendorp, P. "NSS-Price Sensitivity Meter" — ESOMAR 1976' },
+        { num: '1', ref: 'First Page Sage 2026: SaaS freemium → paid avg 3.7%, HR SaaS = 3.3%' },
+        { num: '2', ref: 'GoodSpace 2026: Agency recruitment fees ₹1-2L per hire' },
+        { num: '3', ref: 'Conjoint survey: WTP peak ₹199-349 (n=100 synthetic + n=28 live)' },
+        { num: '4', ref: 'Kano, N. "Attractive Quality vs Must-be Quality" — Quality Journal 14(2), 1984' },
       ]}/>
     </SlideWrap>
   )
 }
 
-function PricingTier({ name, price, features, share, highlight }: any) {
+function JudgingAnswer({ question, answer, color }: { question: string; answer: string; color: string }) {
   return (
-    <div className={`rounded-2xl p-5 border ${highlight ? 'border-[#2563EB] bg-[#2563EB]/5' : 'border-[#E5E7EB]'}`}>
-      <div className="text-[10px] uppercase tracking-wider font-mono text-[#A1A1AA]">{name}</div>
-      <div className="font-semibold text-2xl mt-1 text-[#0A0A0A]">{price}<span className="text-xs text-[#A1A1AA] font-normal"> /mo</span></div>
-      <ul className="mt-3 space-y-1 text-xs text-[#525252]">
-        {features.map((f: string) => <li key={f}>· {f}</li>)}
-      </ul>
-      <div className="mt-3 pt-3 border-t border-[#E5E7EB] text-[10px] uppercase tracking-wider font-mono text-[#2563EB]">Preference share: {share}</div>
+    <div className="rounded-xl border-l-4 bg-[#FAFAFA] p-3" style={{ borderColor: color }}>
+      <div className="text-[10px] uppercase tracking-wider font-mono font-semibold mb-1" style={{ color }}>{question}</div>
+      <div className="text-[11px] text-[#0A0A0A] leading-relaxed">{answer}</div>
     </div>
   )
 }
 
-function RecruiterRow({ label, value, highlight }: any) {
+function RecruiterRow({ label, value, detail, highlight }: { label: string; value: string; detail: string; highlight?: boolean }) {
   return (
     <div className={`rounded-lg p-3 ${highlight ? 'bg-[#2563EB]/20 border border-[#2563EB]' : 'bg-white/10'}`}>
       <div className="text-[10px] uppercase tracking-wider font-mono text-white/60">{label}</div>
       <div className="font-semibold text-sm mt-1 text-white">{value}</div>
+      <div className="text-[9px] text-white/50 mt-0.5">{detail}</div>
     </div>
   )
 }
 
-function UnitEcon({ value, label, hint }: any) {
+function Step({ label, last }: { label: string; last?: boolean }) {
   return (
-    <div className="rounded-xl border border-[#E5E7EB] p-4 flex items-center gap-4">
-      <div className="font-semibold text-3xl text-[#2563EB]">{value}</div>
-      <div>
-        <div className="text-sm font-medium text-[#0A0A0A]">{label}</div>
-        <div className="text-[10px] text-[#A1A1AA] mt-0.5">{hint}</div>
-      </div>
-    </div>
+    <span className={`px-2 py-1 rounded-md bg-[#F4F4F5] text-[#0A0A0A] whitespace-nowrap ${last ? 'border border-[#2563EB] bg-[#2563EB]/5' : ''}`}>{label}</span>
   )
+}
+
+function Arrow() {
+  return <span className="text-[#A1A1AA] text-xs">→</span>
 }
